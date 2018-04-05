@@ -9,6 +9,6 @@ public class ShipTest
     public void newShip_FacesNorthDirection_ByDefault()
     {
         Ship ship = new Ship();
-        assertEquals(Direction.North, ship.direction);
+        assertEquals(Direction.North, ship.getDirection());
     }
 }
