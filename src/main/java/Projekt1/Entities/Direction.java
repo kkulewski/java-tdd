@@ -1,4 +1,4 @@
-package Projekt1.Objects;
+package Projekt1.Entities;
 
 public enum Direction
 {
