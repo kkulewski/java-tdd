@@ -24,4 +24,10 @@ public enum Direction
         int index = (direction.index + 1) % directions.length;
         return directions[index];
     }
+
+    public static Direction left(Direction direction)
+    {
+        int index = (direction.index - 1 + directions.length) % directions.length;
+        return directions[index];
+    }
 }
