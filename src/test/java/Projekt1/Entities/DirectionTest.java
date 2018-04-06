@@ -69,4 +69,21 @@ public class DirectionTest
         // Assert
         assertThat(result).isEqualTo(Direction.South);
     }
+
+    @Test
+    public void left_GivenNorth_AfterFullCycle_ReturnsNorth()
+    {
+        // Arrange
+        Direction start = Direction.North;
+
+        // Act
+        Direction result = start;
+        for (int i = 0; i < Direction.values().length; i++)
+        {
+            result = Direction.left(result);
+        }
+
+        // Assert
+        assertThat(result).isEqualTo(Direction.North);
+    }
 }
