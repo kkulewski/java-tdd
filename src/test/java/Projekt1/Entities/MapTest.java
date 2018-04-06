@@ -37,4 +37,17 @@ public class MapTest
         assertThatThrownBy(() -> map.getField(1,1))
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
+
+    @Test
+    public void getField_GivenValidIndex_WhenMapIsEmpty_ReturnsWaterField()
+    {
+        // Arrange
+        Map map = new Map(2);
+
+        // Act
+        Field field = map.getField(1, 1);
+
+        // Assert
+        assertThat(field).isEqualTo(Field.Water);
+    }
 }
