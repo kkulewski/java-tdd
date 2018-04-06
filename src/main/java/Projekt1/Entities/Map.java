@@ -9,6 +9,11 @@ public class Map
         this.fields = createEmptyMap(size);
     }
 
+    public Field getField(int row, int column)
+    {
+        return fields[row][column];
+    }
+
     private Field[][] createEmptyMap(int size)
     {
         Field[][] fields = new Field[size][size];
