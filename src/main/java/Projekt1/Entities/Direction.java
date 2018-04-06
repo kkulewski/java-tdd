@@ -19,7 +19,7 @@ public enum Direction
 
     private static Direction[] directions = Direction.values();
 
-    public static Direction Right(Direction direction)
+    public static Direction right(Direction direction)
     {
         int index = (direction.index + 1) % directions.length;
         return directions[index];
