@@ -43,4 +43,30 @@ public class DirectionTest
         // Assert
         assertThat(result).isEqualTo(Direction.West);
     }
+
+    @Test
+    public void left_GivenNorth_ReturnsWest()
+    {
+        // Arrange
+        Direction start = Direction.North;
+
+        // Act
+        Direction result = Direction.left(start);
+
+        // Assert
+        assertThat(result).isEqualTo(Direction.West);
+    }
+
+    @Test
+    public void left_GivenWest_ReturnsSouth()
+    {
+        // Arrange
+        Direction start = Direction.West;
+
+        // Act
+        Direction result = Direction.left(start);
+
+        // Assert
+        assertThat(result).isEqualTo(Direction.South);
+    }
 }
