@@ -19,17 +19,19 @@ public class MoveService implements IMoveService
     }
 
     @Override
-    public void turnRight()
+    public boolean turnRight()
     {
         Direction newDirection = Direction.right(ship.getDirection());
         this.ship.setDirection(newDirection);
+        return true;
     }
 
     @Override
-    public void turnLeft()
+    public boolean turnLeft()
     {
         Direction newDirection = Direction.left(ship.getDirection());
         this.ship.setDirection(newDirection);
+        return true;
     }
 
     @Override
