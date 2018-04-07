@@ -59,10 +59,12 @@ public class MapTest
     {
         // Arrange
         int size = 4;
-        Map map = new Map(size);
         List<Field> mapFields = new ArrayList<Field>();
 
         // Act
+        Map map = new Map(size);
+
+        // Assert
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
@@ -71,7 +73,6 @@ public class MapTest
             }
         }
 
-        // Assert
         assertThat(mapFields).containsOnly(Field.Water);
     }
 }
