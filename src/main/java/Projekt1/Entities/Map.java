@@ -33,6 +33,11 @@ public class Map
         return fields[x][y];
     }
 
+    public void setField(int x, int y, Field value)
+    {
+        this.fields[x][y] = value;
+    }
+
     private void fillWithWater()
     {
         for (int x = 0; x < this.size; x++)

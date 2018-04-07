@@ -2,6 +2,7 @@ package Projekt1;
 
 import static org.assertj.core.api.Assertions.*;
 import Projekt1.Entities.Direction;
+import Projekt1.Entities.Field;
 import Projekt1.Entities.Map;
 import Projekt1.Entities.Ship;
 import org.junit.jupiter.api.Test;
@@ -184,5 +185,21 @@ public class MoveServiceTest
 
         // Assert
         assertThat(ship.getY()).isEqualTo(0);
+    }
+
+    @Test
+    public void moveForward_WithLandInTargetField_ReturnsFalse()
+    {
+        // Arrange
+        Map map = new Map(3);
+        map.setField(1, 0, Field.Land);
+        Ship ship = new Ship(Direction.East, 0, 0);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        boolean result = ms.moveForward();
+
+        // Assert
+        assertThat(result).isFalse();
     }
 }
