@@ -39,7 +39,7 @@ public class CoordinateTest
     }
 
     @Test
-    public void Coordinatess_WithDifferentXandY_AreNotEqual()
+    public void Coordinates_WithDifferentXAndY_AreNotEqual()
     {
         // Arrange
         Coordinate coordinate1 = new Coordinate(5, 0);
