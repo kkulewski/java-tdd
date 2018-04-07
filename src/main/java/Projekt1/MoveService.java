@@ -60,22 +60,22 @@ public class MoveService
 
         if (this.getShipDirection() == Direction.North)
         {
-            targetX = (this.getShipX() + mapSize + moveDirection) % mapSize;
+            targetY = (this.getShipY() + mapSize + moveDirection) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.South)
         {
-            targetX = (this.getShipX() + mapSize - moveDirection) % mapSize;
+            targetY = (this.getShipY() + mapSize - moveDirection) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.East)
         {
-            targetY = (this.getShipY() + mapSize + moveDirection) % mapSize;
+            targetX = (this.getShipX() + mapSize + moveDirection) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.West)
         {
-            targetY = (this.getShipY() + mapSize - moveDirection) % mapSize;
+            targetX = (this.getShipX() + mapSize - moveDirection) % mapSize;
         }
 
         if (this.getMap().getField(targetX, targetY) == Field.Water)
