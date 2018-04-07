@@ -202,4 +202,20 @@ public class MoveServiceTest
         // Assert
         assertThat(result).isFalse();
     }
+
+    @Test
+    public void moveForward_WithLandInTargetField_DoesNotMoveShip()
+    {
+        // Arrange
+        Map map = new Map(3);
+        map.setField(1, 0, Field.Land);
+        Ship ship = new Ship(Direction.East, 0, 0);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.moveForward();
+
+        // Assert
+        assertThat(ship.getX()).isEqualTo(0);
+    }
 }
