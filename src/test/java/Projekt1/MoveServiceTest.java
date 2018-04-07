@@ -230,4 +230,22 @@ public class MoveServiceTest
         Field fieldAhead = map.getField(new Coordinate(1, 0));
         assertThat(fieldAhead).isEqualTo(Field.Water);
     }
+
+    @Test
+    public void shoot_WithLandAhead_ReturnsTrue()
+    {
+        // Arrange
+        Map map = new Map(3);
+        Coordinate landCoordinate = new Coordinate(1, 0);
+        map.setField(landCoordinate, Field.Land);
+
+        Ship ship = new Ship(Direction.East);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        boolean result = ms.shoot();
+
+        // Assert
+        assertThat(result).isTrue();
+    }
 }
