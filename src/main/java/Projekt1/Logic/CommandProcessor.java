@@ -13,6 +13,7 @@ public class CommandProcessor implements ICommandProcessor
         this.moveService = moveService;
     }
 
+    @Override
     public IActionResult execute(char symbol)
     {
         IActionResult result;
