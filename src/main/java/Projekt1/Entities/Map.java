@@ -24,18 +24,18 @@ public class Map
         }
     }
 
-    public Field getField(int row, int column)
+    public Field getField(int x, int y)
     {
-        return fields[row][column];
+        return fields[x][y];
     }
 
     private void fillWithWater()
     {
-        for (int i = 0; i < this.size; i++)
+        for (int x = 0; x < this.size; x++)
         {
-            for (int j = 0; j < this.size; j++)
+            for (int y = 0; y < this.size; y++)
             {
-                this.fields[i][j] = Field.Water;
+                this.fields[x][y] = Field.Water;
             }
         }
     }
@@ -48,12 +48,12 @@ public class Map
 
         while (islandsAdded < islandsToAdd)
         {
-            int row = random.nextInt(this.size);
-            int col = random.nextInt(this.size);
+            int x = random.nextInt(this.size);
+            int y = random.nextInt(this.size);
 
-            if (this.fields[row][col] != Field.Land)
+            if (this.fields[x][y] != Field.Land)
             {
-                this.fields[row][col] = Field.Land;
+                this.fields[x][y] = Field.Land;
                 islandsAdded++;
             }
         }

@@ -65,11 +65,11 @@ public class MapTest
         Map map = new Map(size);
 
         // Assert
-        for (int i = 0; i < size; i++)
+        for (int x = 0; x < size; x++)
         {
-            for (int j = 0; j < size; j++)
+            for (int y = 0; y < size; y++)
             {
-                mapFields.add(map.getField(i, j));
+                mapFields.add(map.getField(x, y));
             }
         }
 
@@ -87,13 +87,13 @@ public class MapTest
         Map map = new Map(size, true);
 
         // Assert
-        for (int i = 0; i < size; i++)
+        for (int x = 0; x < size; x++)
         {
-            for (int j = 0; j < size; j++)
+            for (int y = 0; y < size; y++)
             {
-                if (map.getField(i, j) == Field.Land)
+                if (map.getField(x, y) == Field.Land)
                 {
-                    landFields.add(map.getField(i, j));
+                    landFields.add(map.getField(x, y));
                 }
             }
         }
