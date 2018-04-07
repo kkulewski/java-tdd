@@ -54,12 +54,12 @@ public class MoveService
         Coordinate targetCoordinate = getCoordinateAhead();
         Field targetField = this.getMap().getField(targetCoordinate);
 
-        if (targetField == Field.Water)
+        if (targetField == Field.Land)
         {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     private boolean moveToCoordinate(Coordinate coordinate)
