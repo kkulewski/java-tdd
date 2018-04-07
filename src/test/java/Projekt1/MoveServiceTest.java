@@ -75,4 +75,19 @@ public class MoveServiceTest
         // Assert
         assertThat(ms.getShipDirection()).isEqualTo(Direction.West);
     }
+
+    @Test
+    public void moveForward_WithoutMapBoundCrossing_And_WithWaterInTargetField_ReturnsTrue()
+    {
+        // Arrange
+        Map map = new Map(2);
+        Ship ship = new Ship(Direction.East, 0, 0);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        boolean result = ms.moveForward();
+
+        // Assert
+        assertThat(result).isTrue();
+    }
 }
