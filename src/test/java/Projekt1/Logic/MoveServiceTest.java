@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import Projekt1.Entities.*;
 import Projekt1.Logic.Interfaces.IMoveService;
+import Projekt1.Logic.Interfaces.IActionResult;
 import org.junit.jupiter.api.Test;
 
 public class MoveServiceTest
@@ -47,10 +48,10 @@ public class MoveServiceTest
         IMoveService ms = new MoveService(map, ship);
 
         // Act
-        boolean result = ms.moveForward();
+        IActionResult result = ms.moveForward();
 
         // Assert
-        assertThat(result).isTrue();
+        assertThat(result.getStatus()).isTrue();
     }
 
     @Test
@@ -115,10 +116,10 @@ public class MoveServiceTest
         IMoveService ms = new MoveService(map, ship);
 
         // Act
-        boolean result = ms.moveForward();
+        IActionResult result = ms.moveForward();
 
         // Assert
-        assertThat(result).isFalse();
+        assertThat(result.getStatus()).isFalse();
     }
 
     @Test
@@ -185,10 +186,10 @@ public class MoveServiceTest
         IMoveService ms = new MoveService(map, ship);
 
         // Act
-        boolean result = ms.shoot();
+        IActionResult result = ms.shoot();
 
         // Assert
-        assertThat(result).isFalse();
+        assertThat(result.getStatus()).isFalse();
     }
 
     @Test
@@ -219,10 +220,10 @@ public class MoveServiceTest
         IMoveService ms = new MoveService(map, ship);
 
         // Act
-        boolean result = ms.shoot();
+        IActionResult result = ms.shoot();
 
         // Assert
-        assertThat(result).isTrue();
+        assertThat(result.getStatus()).isTrue();
     }
 
     @Test
