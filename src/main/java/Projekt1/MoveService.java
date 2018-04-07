@@ -17,16 +17,6 @@ public class MoveService
         this.ship = ship;
     }
 
-    public Direction getShipDirection()
-    {
-        return this.getShip().getDirection();
-    }
-
-    public Coordinate getShipCoordinate()
-    {
-        return this.getShip().getCoordinate();
-    }
-
     public void turnRight()
     {
         Direction newDirection = Direction.right(ship.getDirection());
@@ -52,7 +42,7 @@ public class MoveService
     public boolean shoot()
     {
         Coordinate targetCoordinate = getCoordinateAhead();
-        Field targetField = this.getMap().getField(targetCoordinate);
+        Field targetField = this.map.getField(targetCoordinate);
 
         if (targetField == Field.Land)
         {
@@ -67,7 +57,7 @@ public class MoveService
     {
         if (canMoveToCoordinate(coordinate))
         {
-            this.getShip().setCoordinate(coordinate);
+            this.ship.setCoordinate(coordinate);
             return true;
         }
 
@@ -76,7 +66,7 @@ public class MoveService
 
     private boolean canMoveToCoordinate(Coordinate coordinate)
     {
-        return this.getMap().getField(coordinate) == Field.Water;
+        return this.map.getField(coordinate) == Field.Water;
     }
 
     private Coordinate getCoordinateAhead()
@@ -95,24 +85,24 @@ public class MoveService
         int targetY = 0;
         int mapSize = this.map.getSize();
 
-        if (this.getShipDirection() == Direction.North)
+        if (this.ship.getDirection() == Direction.North)
         {
-            targetY = (this.getShipCoordinate().Y + mapSize - direction) % mapSize;
+            targetY = (this.ship.getCoordinate().Y + mapSize - direction) % mapSize;
         }
 
-        if (this.getShipDirection() == Direction.South)
+        if (this.ship.getDirection() == Direction.South)
         {
-            targetY = (this.getShipCoordinate().Y + mapSize + direction) % mapSize;
+            targetY = (this.ship.getCoordinate().Y + mapSize + direction) % mapSize;
         }
 
-        if (this.getShipDirection() == Direction.East)
+        if (this.ship.getDirection() == Direction.East)
         {
-            targetX = (this.getShipCoordinate().X + mapSize + direction) % mapSize;
+            targetX = (this.ship.getCoordinate().X + mapSize + direction) % mapSize;
         }
 
-        if (this.getShipDirection() == Direction.West)
+        if (this.ship.getDirection() == Direction.West)
         {
-            targetX = (this.getShipCoordinate().X + mapSize - direction) % mapSize;
+            targetX = (this.ship.getCoordinate().X + mapSize - direction) % mapSize;
         }
 
         return new Coordinate(targetX, targetY);
