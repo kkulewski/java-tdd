@@ -96,7 +96,6 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(2);
-
         int initialX = 0;
         Ship ship = new Ship(Direction.East, initialX, 0);
         MoveService ms = new MoveService(map, ship);
@@ -105,7 +104,7 @@ public class MoveServiceTest
         ms.moveForward();
 
         // Assert
-        int expectedX = (initialX + 1) % map.getSize();
+        int expectedX = initialX + 1;
         assertThat(ship.getX()).isEqualTo(expectedX);
     }
 
@@ -115,7 +114,6 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(2);
-
         int initialY = 0;
         Ship ship = new Ship(Direction.East, 0, initialY);
         MoveService ms = new MoveService(map, ship);
