@@ -1,7 +1,7 @@
-package Projekt1.Services;
+package Projekt1.Logic;
 
 import Projekt1.Entities.*;
-import Projekt1.Services.Interfaces.IMoveService;
+import Projekt1.Logic.Interfaces.IMoveService;
 import lombok.Getter;
 
 public class MoveService implements IMoveService

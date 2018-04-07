@@ -1,4 +1,4 @@
-package Projekt1.Services.Interfaces;
+package Projekt1.Logic.Interfaces;
 
 public interface IMoveService
 {

@@ -1,9 +1,9 @@
-package Projekt1.Services;
+package Projekt1.Logic;
 
 import static org.assertj.core.api.Assertions.*;
 
 import Projekt1.Entities.*;
-import Projekt1.Services.Interfaces.IMoveService;
+import Projekt1.Logic.Interfaces.IMoveService;
 import org.junit.jupiter.api.Test;
 
 public class MoveServiceTest
