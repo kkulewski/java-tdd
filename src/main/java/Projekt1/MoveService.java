@@ -52,6 +52,11 @@ public class MoveService
         return this.move(1);
     }
 
+    public boolean moveBack()
+    {
+        return this.move(-1);
+    }
+
     private boolean move(int moveDirection)
     {
         int targetX = 0;
