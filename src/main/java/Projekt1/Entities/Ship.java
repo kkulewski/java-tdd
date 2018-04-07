@@ -9,8 +9,18 @@ public class Ship
     @Setter
     private Direction direction;
 
+    @Getter
+    @Setter
+    private int x;
+
+    @Getter
+    @Setter
+    private int y;
+
     public Ship()
     {
-        direction = Direction.North;
+        this.direction = Direction.North;
+        this.x = 0;
+        this.y = 0;
     }
 }
