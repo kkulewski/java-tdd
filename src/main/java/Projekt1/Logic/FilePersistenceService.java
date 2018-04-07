@@ -67,6 +67,36 @@ public class FilePersistenceService implements IPersistenceService
         return new ActionResult(true, "Ship saved!");
     }
 
+    @Override
+    public Map loadMap()
+    {
+        List<String> lines = loadFileLines(MAP_FILENAME);
+        if (lines == null)
+        {
+            return null;
+        }
+
+        int size = Integer.parseInt(lines.get(0));
+        Field[][] fields = new Field[size][size];
+
+        for (int x = 0; x < size; x++)
+        {
+            char[] symbols = lines.get(x + 1).toCharArray();
+            for (int y = 0; y < size; y++)
+            {
+                char symbol = symbols[y];
+
+                if (symbol == Field.Water.getSymbol())
+                    fields[x][y] = Field.Water;
+
+                if (symbol == Field.Land.getSymbol())
+                    fields[x][y] = Field.Land;
+            }
+        }
+
+        return new Map(fields);
+    }
+
     public Ship loadShip()
     {
         List<String> lines = loadFileLines(SHIP_FILENAME);
