@@ -45,4 +45,19 @@ public class MoveServiceTest
         // Assert
         assertThat(ms.getShipY()).isEqualTo(shipY);
     }
+
+    @Test
+    public void turnRight_WithShipFacingNorth_MakesItFaceEast()
+    {
+        // Arrange
+        Map map = new Map(0);
+        Ship ship = new Ship(Direction.North, 0, 0);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.turnRight();
+
+        // Assert
+        assertThat(ms.getShipDirection()).isEqualTo(Direction.East);
+    }
 }
