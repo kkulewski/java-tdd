@@ -3,10 +3,12 @@ package Projekt1.Entities;
 public class Map
 {
     private Field[][] fields;
+    private int size;
 
     public Map(int size)
     {
-        this.fields = createEmptyMap(size);
+        this.size = size;
+        createEmptyMap();
     }
 
     public Field getField(int row, int column)
@@ -14,17 +16,15 @@ public class Map
         return fields[row][column];
     }
 
-    private Field[][] createEmptyMap(int size)
+    private void createEmptyMap()
     {
-        Field[][] fields = new Field[size][size];
-        for (int i = 0; i < size; i++)
+        this.fields = new Field[this.size][this.size];
+        for (int i = 0; i < this.size; i++)
         {
-            for (int j = 0; j < size; j++)
+            for (int j = 0; j < this.size; j++)
             {
-                fields[i][j] = Field.Water;
+                this.fields[i][j] = Field.Water;
             }
         }
-
-        return fields;
     }
 }
