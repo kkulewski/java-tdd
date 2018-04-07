@@ -8,31 +8,6 @@ import org.junit.jupiter.api.Test;
 public class MoveServiceTest
 {
     @Test
-    public void getShipDirection_ReturnsShipDirection()
-    {
-        // Arrange
-        Map map = new Map(0);
-        Ship ship = new Ship(Direction.North);
-        MoveService ms = new MoveService(map, ship);
-
-        // Assert
-        assertThat(ms.getShipDirection()).isEqualTo(Direction.North);
-    }
-
-    @Test
-    public void getShipCoordinate_ReturnsShipCoordinate()
-    {
-        // Arrange
-        Map map = new Map(0);
-        Coordinate coordinate = new Coordinate(3, 0);
-        Ship ship = new Ship(Direction.North, coordinate);
-        MoveService ms = new MoveService(map, ship);
-
-        // Assert
-        assertThat(ms.getShipCoordinate()).isEqualTo(coordinate);
-    }
-
-    @Test
     public void turnRight_WithShipFacingNorth_MakesItFaceEast()
     {
         // Arrange
@@ -44,7 +19,7 @@ public class MoveServiceTest
         ms.turnRight();
 
         // Assert
-        assertThat(ms.getShipDirection()).isEqualTo(Direction.East);
+        assertThat(ship.getDirection()).isEqualTo(Direction.East);
     }
 
     @Test
@@ -59,7 +34,7 @@ public class MoveServiceTest
         ms.turnLeft();
 
         // Assert
-        assertThat(ms.getShipDirection()).isEqualTo(Direction.West);
+        assertThat(ship.getDirection()).isEqualTo(Direction.West);
     }
 
     @Test
