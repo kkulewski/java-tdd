@@ -267,4 +267,26 @@ public class MoveServiceTest
         Field fieldAfterShoot = map.getField(landCoordinate);
         assertThat(fieldAfterShoot).isEqualTo(Field.Water);
     }
+
+    @Test
+    public void moveForward_WithLandAhead_AfterShoot_CanBeContinued()
+    {
+        // Arrange
+        Map map = new Map(4);
+        Coordinate landCoordinate = new Coordinate(2, 0);
+        map.setField(landCoordinate, Field.Land);
+
+        Ship ship = new Ship(Direction.East);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.moveForward(); // 0 -> 1
+        ms.shoot(); // shoot land at 2
+        ms.moveForward(); // 1 -> 2
+        ms.moveForward(); // 2 -> 3
+
+        // Assert
+        Coordinate expected = new Coordinate(3, 0);
+        assertThat(ship.getCoordinate()).isEqualTo(expected);
+    }
 }
