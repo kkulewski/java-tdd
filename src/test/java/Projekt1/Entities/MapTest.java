@@ -75,4 +75,29 @@ public class MapTest
 
         assertThat(mapFields).containsOnly(Field.Water);
     }
+
+    @Test
+    public void newMap_WithLandAndSize10_Contains10LandFields()
+    {
+        // Arrange
+        int size = 10;
+        List<Field> landFields = new ArrayList<Field>();
+
+        // Act
+        Map map = new Map(size, true);
+
+        // Assert
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                if (map.getField(i, j) == Field.Land)
+                {
+                    landFields.add(map.getField(i, j));
+                }
+            }
+        }
+
+        assertThat(landFields).hasSize(10);
+    }
 }
