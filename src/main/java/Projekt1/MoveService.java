@@ -41,15 +41,41 @@ public class MoveService
 
     public boolean moveForward()
     {
-        return this.move(1);
+        return moveToCoordinate(getCoordinateAhead());
     }
 
     public boolean moveBack()
     {
-        return this.move(-1);
+        return moveToCoordinate(getCoordinateBehind());
     }
 
-    private boolean move(int moveDirection)
+    private boolean moveToCoordinate(Coordinate coordinate)
+    {
+        if (canMoveToCoordinate(coordinate))
+        {
+            this.getShip().setCoordinate(coordinate);
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean canMoveToCoordinate(Coordinate coordinate)
+    {
+        return this.getMap().getField(coordinate) == Field.Water;
+    }
+
+    private Coordinate getCoordinateAhead()
+    {
+        return getCoordinate(1);
+    }
+
+    private Coordinate getCoordinateBehind()
+    {
+        return getCoordinate(-1);
+    }
+
+    private Coordinate getCoordinate(int direction)
     {
         int targetX = 0;
         int targetY = 0;
@@ -57,31 +83,24 @@ public class MoveService
 
         if (this.getShipDirection() == Direction.North)
         {
-            targetY = (this.getShipCoordinate().Y + mapSize - moveDirection) % mapSize;
+            targetY = (this.getShipCoordinate().Y + mapSize - direction) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.South)
         {
-            targetY = (this.getShipCoordinate().Y + mapSize + moveDirection) % mapSize;
+            targetY = (this.getShipCoordinate().Y + mapSize + direction) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.East)
         {
-            targetX = (this.getShipCoordinate().X + mapSize + moveDirection) % mapSize;
+            targetX = (this.getShipCoordinate().X + mapSize + direction) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.West)
         {
-            targetX = (this.getShipCoordinate().X + mapSize - moveDirection) % mapSize;
+            targetX = (this.getShipCoordinate().X + mapSize - direction) % mapSize;
         }
 
-        Coordinate targetCoordinate = new Coordinate(targetX, targetY);
-        if (this.getMap().getField(targetCoordinate) == Field.Water)
-        {
-            this.getShip().setCoordinate(targetCoordinate);
-            return true;
-        }
-
-        return false;
+        return new Coordinate(targetX, targetY);
     }
 }
