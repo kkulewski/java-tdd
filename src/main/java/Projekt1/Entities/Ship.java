@@ -23,4 +23,11 @@ public class Ship
         this.setX(0);
         this.setY(0);
     }
+
+    public Ship(Direction direction, int x, int y)
+    {
+        this.setDirection(direction);
+        this.setY(y);
+        this.setX(x);
+    }
 }
