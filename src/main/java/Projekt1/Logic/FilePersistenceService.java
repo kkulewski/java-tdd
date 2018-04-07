@@ -12,8 +12,8 @@ import java.util.Scanner;
 
 public class FilePersistenceService implements IPersistenceService
 {
-    private final static String MAP_FILENAME = "map.txt";
-    private final static String SHIP_FILENAME = "ship.txt";
+    public final static String MAP_FILENAME = "map.txt";
+    public final static String SHIP_FILENAME = "ship.txt";
 
     @Override
     public IActionResult saveMap(Map map)

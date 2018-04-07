@@ -7,5 +7,6 @@ public interface IPersistenceService
 {
     public IActionResult saveMap(Map map);
     public IActionResult saveShip(Ship ship);
+    public Map loadMap();
     public Ship loadShip();
 }
