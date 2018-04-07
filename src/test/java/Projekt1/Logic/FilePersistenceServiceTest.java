@@ -43,6 +43,20 @@ public class FilePersistenceServiceTest
         File f = new File("ship.txt");
         boolean fileExists = f.exists() && !f.isDirectory();
         assertThat(fileExists).isTrue();
+    }
 
+    @Test
+    public void loadShip_LoadsPreviouslySavedShipFromFile()
+    {
+        // Arrange
+        Ship ship = new Ship(Direction.West, new Coordinate(2, 3));
+        IPersistenceService ps = new FilePersistenceService();
+        ps.saveShip(ship);
+
+        // Act
+        Ship loadedShip = ps.loadShip();
+
+        // Assert
+        assertThat(loadedShip.getCoordinate()).isEqualTo(ship.getCoordinate());
     }
 }
