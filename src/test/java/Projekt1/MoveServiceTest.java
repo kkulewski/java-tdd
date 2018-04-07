@@ -218,4 +218,23 @@ public class MoveServiceTest
         // Assert
         assertThat(ship.getX()).isEqualTo(0);
     }
+
+    @Test
+    public void moveForward_SucceedsUntilTargetFieldIsLand()
+    {
+        // Arrange
+        Map map = new Map(4);
+        map.setField(3, 0, Field.Land);
+        Ship ship = new Ship(Direction.East, 0, 0);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.moveForward(); // 0 -> 1
+        ms.moveForward(); // 1 -> 2
+        ms.moveForward(); // stop - land
+        ms.moveForward(); // stop - land
+
+        // Assert
+        assertThat(ship.getX()).isEqualTo(2);
+    }
 }
