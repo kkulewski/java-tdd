@@ -60,12 +60,12 @@ public class MoveService
 
         if (this.getShipDirection() == Direction.North)
         {
-            targetY = (this.getShipY() + mapSize + moveDirection) % mapSize;
+            targetY = (this.getShipY() + mapSize - moveDirection) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.South)
         {
-            targetY = (this.getShipY() + mapSize - moveDirection) % mapSize;
+            targetY = (this.getShipY() + mapSize + moveDirection) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.East)
