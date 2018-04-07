@@ -28,6 +28,12 @@ public class Map
         }
     }
 
+    public Map(Field[][] fields)
+    {
+        this.size = fields.length;
+        this.fields = fields;
+    }
+
     public Field getField(Coordinate coordinate)
     {
         return fields[coordinate.X][coordinate.Y];
