@@ -39,4 +39,10 @@ public class MoveService
         Direction newDirection = Direction.right(ship.getDirection());
         this.ship.setDirection(newDirection);
     }
+
+    public void turnLeft()
+    {
+        Direction newDirection = Direction.left(ship.getDirection());
+        this.ship.setDirection(newDirection);
+    }
 }
