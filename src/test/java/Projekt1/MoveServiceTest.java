@@ -214,4 +214,20 @@ public class MoveServiceTest
         // Assert
         assertThat(result).isFalse();
     }
+
+    @Test
+    public void shoot_WithWaterAhead_DoesNotChangeFieldType()
+    {
+        // Arrange
+        Map map = new Map(3);
+        Ship ship = new Ship(Direction.East);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.shoot();
+
+        // Assert
+        Field fieldAhead = map.getField(new Coordinate(1, 0));
+        assertThat(fieldAhead).isEqualTo(Field.Water);
+    }
 }
