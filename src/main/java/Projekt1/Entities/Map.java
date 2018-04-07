@@ -28,14 +28,14 @@ public class Map
         }
     }
 
-    public Field getField(int x, int y)
+    public Field getField(Coordinate coordinate)
     {
-        return fields[x][y];
+        return fields[coordinate.X][coordinate.Y];
     }
 
-    public void setField(int x, int y, Field value)
+    public void setField(Coordinate coordinate, Field value)
     {
-        this.fields[x][y] = value;
+        this.fields[coordinate.X][coordinate.Y] = value;
     }
 
     private void fillWithWater()

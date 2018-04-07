@@ -1,10 +1,8 @@
 package Projekt1;
 
 import static org.assertj.core.api.Assertions.*;
-import Projekt1.Entities.Direction;
-import Projekt1.Entities.Field;
-import Projekt1.Entities.Map;
-import Projekt1.Entities.Ship;
+
+import Projekt1.Entities.*;
 import org.junit.jupiter.api.Test;
 
 public class MoveServiceTest
@@ -14,7 +12,7 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(0);
-        Ship ship = new Ship(Direction.North, 0, 0);
+        Ship ship = new Ship(Direction.North);
         MoveService ms = new MoveService(map, ship);
 
         // Assert
@@ -22,29 +20,16 @@ public class MoveServiceTest
     }
 
     @Test
-    public void getShipX_ReturnsShipX()
+    public void getShipCoordinate_ReturnsShipCoordinate()
     {
         // Arrange
         Map map = new Map(0);
-        int shipX = 3;
-        Ship ship = new Ship(Direction.North, shipX, 0);
+        Coordinate coordinate = new Coordinate(3, 0);
+        Ship ship = new Ship(Direction.North, coordinate);
         MoveService ms = new MoveService(map, ship);
 
         // Assert
-        assertThat(ms.getShipX()).isEqualTo(shipX);
-    }
-
-    @Test
-    public void getShipY_ReturnsShipY()
-    {
-        // Arrange
-        Map map = new Map(0);
-        int shipY = 3;
-        Ship ship = new Ship(Direction.North, 0, shipY);
-        MoveService ms = new MoveService(map, ship);
-
-        // Assert
-        assertThat(ms.getShipY()).isEqualTo(shipY);
+        assertThat(ms.getShipCoordinate()).isEqualTo(coordinate);
     }
 
     @Test
@@ -52,7 +37,7 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(0);
-        Ship ship = new Ship(Direction.North, 0, 0);
+        Ship ship = new Ship(Direction.North);
         MoveService ms = new MoveService(map, ship);
 
         // Act
@@ -67,7 +52,7 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(0);
-        Ship ship = new Ship(Direction.North, 0, 0);
+        Ship ship = new Ship(Direction.North);
         MoveService ms = new MoveService(map, ship);
 
         // Act
@@ -82,7 +67,7 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(2);
-        Ship ship = new Ship(Direction.East, 0, 0);
+        Ship ship = new Ship(Direction.East);
         MoveService ms = new MoveService(map, ship);
 
         // Act
@@ -93,98 +78,54 @@ public class MoveServiceTest
     }
 
     @Test
-    public void moveForward_WhenFacingEast_CorrectlyChangesShipX()
+    public void moveForward_WhenFacingEast_CorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(2);
-        int initialX = 0;
-        Ship ship = new Ship(Direction.East, initialX, 0);
+        Coordinate initial = new Coordinate(0, 0);
+        Ship ship = new Ship(Direction.East, initial);
         MoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward();
 
         // Assert
-        int expectedX = initialX + 1;
-        assertThat(ship.getX()).isEqualTo(expectedX);
-    }
-
-
-    @Test
-    public void moveForward_WhenFacingEast_DoesNotChangeShipY()
-    {
-        // Arrange
-        Map map = new Map(2);
-        int initialY = 0;
-        Ship ship = new Ship(Direction.East, 0, initialY);
-        MoveService ms = new MoveService(map, ship);
-
-        // Act
-        ms.moveForward();
-
-        // Assert
-        assertThat(ship.getY()).isEqualTo(initialY);
+        Coordinate expected = new Coordinate(1, 0);
+        assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
     @Test
-    public void moveForward_WithHorizontalMapBoundCross_CorrectlyChangesX()
+    public void moveForward_WithHorizontalMapBoundCross_CorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(3);
-        int initialX = 0;
-        Ship ship = new Ship(Direction.West, initialX, 0);
+        Coordinate initial = new Coordinate(0, 0);
+        Ship ship = new Ship(Direction.West, initial);
         MoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward();
 
         // Assert
-        assertThat(ship.getX()).isEqualTo(2);
+        Coordinate expected = new Coordinate(2, 0);
+        assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
     @Test
-    public void moveForward_WithHorizontalMapBoundCross_DoesNotChangeY()
+    public void moveForward_WithVerticalMapBoundCross_CorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(3);
-        Ship ship = new Ship(Direction.West, 0, 0);
+        Coordinate initial = new Coordinate(0, 2);
+        Ship ship = new Ship(Direction.South, initial);
         MoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward();
 
         // Assert
-        assertThat(ship.getY()).isEqualTo(0);
-    }
-
-    @Test
-    public void moveForward_WithVerticalMapBoundCross_DoesNotChangeX()
-    {
-        // Arrange
-        Map map = new Map(3);
-        Ship ship = new Ship(Direction.South, 0, 2);
-        MoveService ms = new MoveService(map, ship);
-
-        // Act
-        ms.moveForward();
-
-        // Assert
-        assertThat(ship.getX()).isEqualTo(0);
-    }
-
-    @Test
-    public void moveForward_WithVerticalMapBoundCross_CorrectlyChangesY()
-    {
-        // Arrange
-        Map map = new Map(3);
-        Ship ship = new Ship(Direction.South, 0, 2);
-        MoveService ms = new MoveService(map, ship);
-
-        // Act
-        ms.moveForward();
-
-        // Assert
-        assertThat(ship.getY()).isEqualTo(0);
+        Coordinate expected = new Coordinate(0, 0);
+        assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
     @Test
@@ -192,8 +133,9 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(3);
-        map.setField(1, 0, Field.Land);
-        Ship ship = new Ship(Direction.East, 0, 0);
+        Coordinate landCoordinate = new Coordinate(1, 0);
+        map.setField(landCoordinate, Field.Land);
+        Ship ship = new Ship(Direction.East);
         MoveService ms = new MoveService(map, ship);
 
         // Act
@@ -208,15 +150,17 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(3);
-        map.setField(1, 0, Field.Land);
-        Ship ship = new Ship(Direction.East, 0, 0);
+        Coordinate landCoordinate = new Coordinate(1, 0);
+        map.setField(landCoordinate, Field.Land);
+        Ship ship = new Ship(Direction.East);
         MoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward();
 
         // Assert
-        assertThat(ship.getX()).isEqualTo(0);
+        Coordinate expected = new Coordinate(0, 0);
+        assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
     @Test
@@ -224,8 +168,9 @@ public class MoveServiceTest
     {
         // Arrange
         Map map = new Map(4);
-        map.setField(3, 0, Field.Land);
-        Ship ship = new Ship(Direction.East, 0, 0);
+        Coordinate landCoordinate = new Coordinate(3, 0);
+        map.setField(landCoordinate, Field.Land);
+        Ship ship = new Ship(Direction.East);
         MoveService ms = new MoveService(map, ship);
 
         // Act
@@ -235,37 +180,23 @@ public class MoveServiceTest
         ms.moveForward(); // stop - land
 
         // Assert
-        assertThat(ship.getX()).isEqualTo(2);
+        Coordinate expected = new Coordinate(2, 0);
+        assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
     @Test
-    public void moveBack_WithHorizontalMapBoundCross_CorrectlyChangesX()
+    public void moveBack_WithHorizontalMapBoundCross_CorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(5);
-        int initialX = 0;
-        Ship ship = new Ship(Direction.East, initialX, 0);
+        Ship ship = new Ship(Direction.East);
         MoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveBack();
 
         // Assert
-        assertThat(ship.getX()).isEqualTo(4);
-    }
-
-    @Test
-    public void moveBack_WithHorizontalMapBoundCross_DoesNotChangeY()
-    {
-        // Arrange
-        Map map = new Map(5);
-        Ship ship = new Ship(Direction.West, 0, 0);
-        MoveService ms = new MoveService(map, ship);
-
-        // Act
-        ms.moveBack();
-
-        // Assert
-        assertThat(ship.getY()).isEqualTo(0);
+        Coordinate expected = new Coordinate(4, 0);
+        assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 }

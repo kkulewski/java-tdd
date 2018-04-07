@@ -13,9 +13,10 @@ public class MapTest
     {
         // Arrange
         Map map = new Map(1);
+        Coordinate coord = new Coordinate(1,0);
 
         // Act & Assert
-        assertThatThrownBy(() -> map.getField(1,0))
+        assertThatThrownBy(() -> map.getField(coord))
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
 
@@ -24,9 +25,10 @@ public class MapTest
     {
         // Arrange
         Map map = new Map(1);
+        Coordinate coord = new Coordinate(0,1);
 
         // Act & Assert
-        assertThatThrownBy(() -> map.getField(0,1))
+        assertThatThrownBy(() -> map.getField(coord))
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
 
@@ -35,9 +37,10 @@ public class MapTest
     {
         // Arrange
         Map map = new Map(1);
+        Coordinate coord = new Coordinate(1,1);
 
         // Act & Assert
-        assertThatThrownBy(() -> map.getField(1,1))
+        assertThatThrownBy(() -> map.getField(coord))
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
 
@@ -46,9 +49,10 @@ public class MapTest
     {
         // Arrange
         Map map = new Map(2);
+        Coordinate coord = new Coordinate(1, 1);
 
         // Act
-        Field field = map.getField(1, 1);
+        Field field = map.getField(coord);
 
         // Assert
         assertThat(field).isEqualTo(Field.Water);
@@ -69,7 +73,8 @@ public class MapTest
         {
             for (int y = 0; y < size; y++)
             {
-                mapFields.add(map.getField(x, y));
+                Coordinate coord = new Coordinate(x, y);
+                mapFields.add(map.getField(coord));
             }
         }
 
@@ -91,9 +96,10 @@ public class MapTest
         {
             for (int y = 0; y < size; y++)
             {
-                if (map.getField(x, y) == Field.Land)
+                Coordinate coord = new Coordinate(x, y);
+                if (map.getField(coord) == Field.Land)
                 {
-                    landFields.add(map.getField(x, y));
+                    landFields.add(map.getField(coord));
                 }
             }
         }

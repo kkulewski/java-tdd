@@ -1,9 +1,6 @@
 package Projekt1;
 
-import Projekt1.Entities.Direction;
-import Projekt1.Entities.Field;
-import Projekt1.Entities.Map;
-import Projekt1.Entities.Ship;
+import Projekt1.Entities.*;
 import lombok.Getter;
 
 public class MoveService
@@ -25,14 +22,9 @@ public class MoveService
         return this.getShip().getDirection();
     }
 
-    public int getShipX()
+    public Coordinate getShipCoordinate()
     {
-        return this.getShip().getX();
-    }
-
-    public int getShipY()
-    {
-        return this.getShip().getY();
+        return this.getShip().getCoordinate();
     }
 
     public void turnRight()
@@ -65,28 +57,28 @@ public class MoveService
 
         if (this.getShipDirection() == Direction.North)
         {
-            targetY = (this.getShipY() + mapSize - moveDirection) % mapSize;
+            targetY = (this.getShipCoordinate().Y + mapSize - moveDirection) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.South)
         {
-            targetY = (this.getShipY() + mapSize + moveDirection) % mapSize;
+            targetY = (this.getShipCoordinate().Y + mapSize + moveDirection) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.East)
         {
-            targetX = (this.getShipX() + mapSize + moveDirection) % mapSize;
+            targetX = (this.getShipCoordinate().X + mapSize + moveDirection) % mapSize;
         }
 
         if (this.getShipDirection() == Direction.West)
         {
-            targetX = (this.getShipX() + mapSize - moveDirection) % mapSize;
+            targetX = (this.getShipCoordinate().X + mapSize - moveDirection) % mapSize;
         }
 
-        if (this.getMap().getField(targetX, targetY) == Field.Water)
+        Coordinate targetCoordinate = new Coordinate(targetX, targetY);
+        if (this.getMap().getField(targetCoordinate) == Field.Water)
         {
-            this.getShip().setX(targetX);
-            this.getShip().setY(targetY);
+            this.getShip().setCoordinate(targetCoordinate);
             return true;
         }
 

@@ -11,23 +11,24 @@ public class Ship
 
     @Getter
     @Setter
-    private int x;
-
-    @Getter
-    @Setter
-    private int y;
+    private Coordinate coordinate;
 
     public Ship()
     {
         this.setDirection(Direction.North);
-        this.setX(0);
-        this.setY(0);
+        this.setCoordinate(new Coordinate(0, 0));
     }
 
-    public Ship(Direction direction, int x, int y)
+    public Ship(Direction direction)
     {
+        this();
         this.setDirection(direction);
-        this.setY(y);
-        this.setX(x);
+    }
+
+    public Ship(Direction direction, Coordinate coordinate)
+    {
+        this();
+        this.setDirection(direction);
+        this.setCoordinate(coordinate);
     }
 }
