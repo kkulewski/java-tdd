@@ -49,6 +49,11 @@ public class MoveService
         return moveToCoordinate(getCoordinateBehind());
     }
 
+    public boolean shoot()
+    {
+        return true;
+    }
+
     private boolean moveToCoordinate(Coordinate coordinate)
     {
         if (canMoveToCoordinate(coordinate))

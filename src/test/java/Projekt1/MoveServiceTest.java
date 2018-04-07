@@ -199,4 +199,19 @@ public class MoveServiceTest
         Coordinate expected = new Coordinate(4, 0);
         assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
+
+    @Test
+    public void shoot_WithWaterAhead_ReturnsFalse()
+    {
+        // Arrange
+        Map map = new Map(3);
+        Ship ship = new Ship(Direction.East);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        boolean result = ms.shoot();
+
+        // Assert
+        assertThat(result).isFalse();
+    }
 }
