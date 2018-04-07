@@ -56,6 +56,7 @@ public class MoveService
 
         if (targetField == Field.Land)
         {
+            this.map.setField(targetCoordinate, Field.Water);
             return true;
         }
 
