@@ -1,16 +1,14 @@
 package Projekt1.Logic;
 
-import Projekt1.Entities.Coordinate;
-import Projekt1.Entities.Field;
-import Projekt1.Entities.Map;
-import Projekt1.Entities.Ship;
+import Projekt1.Entities.*;
 import Projekt1.Logic.Interfaces.IActionResult;
 import Projekt1.Logic.Interfaces.IPersistenceService;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class FilePersistenceService implements IPersistenceService
 {
@@ -67,5 +65,56 @@ public class FilePersistenceService implements IPersistenceService
         }
 
         return new ActionResult(true, "Ship saved!");
+    }
+
+    public Ship loadShip()
+    {
+        List<String> lines = loadFileLines(SHIP_FILENAME);
+        if (lines == null)
+        {
+            return null;
+        }
+
+        Character symbol = Character.toUpperCase(lines.get(0).charAt(0));
+        Direction direction = null;
+
+        if (symbol == Direction.North.getSymbol())
+            direction = Direction.North;
+
+        if (symbol == Direction.East.getSymbol())
+            direction = Direction.East;
+
+        if (symbol == Direction.South.getSymbol())
+            direction = Direction.South;
+
+        if (symbol == Direction.West.getSymbol())
+            direction = Direction.West;
+
+        int x = Integer.parseInt(lines.get(1));
+        int y = Integer.parseInt(lines.get(2));
+        return new Ship(direction, new Coordinate(x, y));
+    }
+
+    private List<String> loadFileLines(String fileName)
+    {
+        File file;
+        Scanner scanner;
+        try
+        {
+            file = new File(SHIP_FILENAME);
+            scanner = new Scanner(file);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+
+        List<String> lines = new ArrayList<>();
+        while (scanner.hasNextLine())
+        {
+            lines.add(scanner.nextLine());
+        }
+
+        return lines;
     }
 }
