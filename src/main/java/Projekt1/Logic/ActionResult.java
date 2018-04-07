@@ -1,4 +1,6 @@
-package Projekt1.Logic.Messages;
+package Projekt1.Logic;
+
+import Projekt1.Logic.Interfaces.IActionResult;
 
 public class ActionResult implements IActionResult
 {
