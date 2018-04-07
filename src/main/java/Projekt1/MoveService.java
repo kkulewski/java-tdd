@@ -51,6 +51,14 @@ public class MoveService
 
     public boolean shoot()
     {
+        Coordinate targetCoordinate = getCoordinateAhead();
+        Field targetField = this.getMap().getField(targetCoordinate);
+
+        if (targetField == Field.Water)
+        {
+            return false;
+        }
+
         return true;
     }
 
