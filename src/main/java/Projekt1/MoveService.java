@@ -23,4 +23,9 @@ public class MoveService
     {
         return this.getShip().getDirection();
     }
+
+    public int getShipX()
+    {
+        return this.getShip().getX();
+    }
 }

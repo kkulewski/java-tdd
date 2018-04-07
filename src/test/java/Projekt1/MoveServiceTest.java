@@ -19,4 +19,17 @@ public class MoveServiceTest
         // Assert
         assertThat(ms.getShipDirection()).isEqualTo(Direction.North);
     }
+
+    @Test
+    public void getShipX_ReturnsShipX()
+    {
+        // Arrange
+        Map map = new Map(0);
+        int shipX = 3;
+        Ship ship = new Ship(Direction.North, shipX, 0);
+        MoveService ms = new MoveService(map, ship);
+
+        // Assert
+        assertThat(ms.getShipX()).isEqualTo(shipX);
+    }
 }
