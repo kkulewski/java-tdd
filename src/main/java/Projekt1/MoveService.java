@@ -1,6 +1,7 @@
 package Projekt1;
 
 import Projekt1.Entities.Direction;
+import Projekt1.Entities.Field;
 import Projekt1.Entities.Map;
 import Projekt1.Entities.Ship;
 import lombok.Getter;
@@ -44,5 +45,46 @@ public class MoveService
     {
         Direction newDirection = Direction.left(ship.getDirection());
         this.ship.setDirection(newDirection);
+    }
+
+    public boolean moveForward()
+    {
+        return this.move(1);
+    }
+
+    private boolean move(int moveDirection)
+    {
+        int targetX = 0;
+        int targetY = 0;
+        int mapSize = this.map.getSize();
+
+        if (this.getShipDirection() == Direction.North)
+        {
+            targetX = (this.getShipX() + mapSize + moveDirection) % mapSize;
+        }
+
+        if (this.getShipDirection() == Direction.South)
+        {
+            targetX = (this.getShipX() + mapSize - moveDirection) % mapSize;
+        }
+
+        if (this.getShipDirection() == Direction.East)
+        {
+            targetY = (this.getShipY() + mapSize + moveDirection) % mapSize;
+        }
+
+        if (this.getShipDirection() == Direction.West)
+        {
+            targetY = (this.getShipY() + mapSize - moveDirection) % mapSize;
+        }
+
+        if (this.getMap().getField(targetX, targetY) == Field.Water)
+        {
+            this.getShip().setX(targetX);
+            this.getShip().setY(targetY);
+            return true;
+        }
+
+        return false;
     }
 }
