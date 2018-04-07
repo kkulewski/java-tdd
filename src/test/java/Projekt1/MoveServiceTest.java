@@ -155,4 +155,34 @@ public class MoveServiceTest
         // Assert
         assertThat(ship.getY()).isEqualTo(0);
     }
+
+    @Test
+    public void moveForward_WithVerticalMapBoundCross_DoesNotChangeX()
+    {
+        // Arrange
+        Map map = new Map(3);
+        Ship ship = new Ship(Direction.South, 0, 2);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.moveForward();
+
+        // Assert
+        assertThat(ship.getX()).isEqualTo(0);
+    }
+
+    @Test
+    public void moveForward_WithVerticalMapBoundCross_CorrectlyChangesY()
+    {
+        // Arrange
+        Map map = new Map(3);
+        Ship ship = new Ship(Direction.South, 0, 2);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.moveForward();
+
+        // Assert
+        assertThat(ship.getY()).isEqualTo(0);
+    }
 }
