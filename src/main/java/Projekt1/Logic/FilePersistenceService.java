@@ -7,10 +7,16 @@ import Projekt1.Entities.Ship;
 import Projekt1.Logic.Interfaces.IActionResult;
 import Projekt1.Logic.Interfaces.IPersistenceService;
 
+import java.io.File;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.util.List;
 
 public class FilePersistenceService implements IPersistenceService
 {
+    private final static String MAP_FILENAME = "map.txt";
+    private final static String SHIP_FILENAME = "ship.txt";
+
     @Override
     public IActionResult saveMap(Map map)
     {
@@ -29,7 +35,7 @@ public class FilePersistenceService implements IPersistenceService
             }
         }
 
-        try (PrintWriter out = new PrintWriter("map.txt"))
+        try (PrintWriter out = new PrintWriter(MAP_FILENAME))
         {
             out.println(sb.toString());
         }
@@ -51,7 +57,7 @@ public class FilePersistenceService implements IPersistenceService
         sb.append(System.lineSeparator());
         sb.append(ship.getCoordinate().Y);
 
-        try (PrintWriter out = new PrintWriter("ship.txt"))
+        try (PrintWriter out = new PrintWriter(SHIP_FILENAME))
         {
             out.println(sb.toString());
         }
