@@ -1,8 +1,9 @@
-package Projekt1;
+package Projekt1.Services;
 
 import static org.assertj.core.api.Assertions.*;
 
 import Projekt1.Entities.*;
+import Projekt1.Services.Interfaces.IMoveService;
 import org.junit.jupiter.api.Test;
 
 public class MoveServiceTest
@@ -13,7 +14,7 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(0);
         Ship ship = new Ship(Direction.North);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.turnRight();
@@ -28,7 +29,7 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(0);
         Ship ship = new Ship(Direction.North);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.turnLeft();
@@ -43,7 +44,7 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(2);
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         boolean result = ms.moveForward();
@@ -59,7 +60,7 @@ public class MoveServiceTest
         Map map = new Map(2);
         Coordinate initial = new Coordinate(0, 0);
         Ship ship = new Ship(Direction.East, initial);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward();
@@ -76,7 +77,7 @@ public class MoveServiceTest
         Map map = new Map(3);
         Coordinate initial = new Coordinate(0, 0);
         Ship ship = new Ship(Direction.West, initial);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward();
@@ -93,7 +94,7 @@ public class MoveServiceTest
         Map map = new Map(3);
         Coordinate initial = new Coordinate(0, 2);
         Ship ship = new Ship(Direction.South, initial);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward();
@@ -111,7 +112,7 @@ public class MoveServiceTest
         Coordinate landCoordinate = new Coordinate(1, 0);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         boolean result = ms.moveForward();
@@ -128,7 +129,7 @@ public class MoveServiceTest
         Coordinate landCoordinate = new Coordinate(1, 0);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward();
@@ -146,7 +147,7 @@ public class MoveServiceTest
         Coordinate landCoordinate = new Coordinate(3, 0);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward(); // 0 -> 1
@@ -165,7 +166,7 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(5);
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveBack();
@@ -181,7 +182,7 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(3);
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         boolean result = ms.shoot();
@@ -196,7 +197,7 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(3);
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.shoot();
@@ -215,7 +216,7 @@ public class MoveServiceTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         boolean result = ms.shoot();
@@ -233,7 +234,7 @@ public class MoveServiceTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.shoot();
@@ -252,7 +253,7 @@ public class MoveServiceTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        MoveService ms = new MoveService(map, ship);
+        IMoveService ms = new MoveService(map, ship);
 
         // Act
         ms.moveForward(); // 0 -> 1

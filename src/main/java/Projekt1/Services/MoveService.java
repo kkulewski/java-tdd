@@ -1,9 +1,10 @@
-package Projekt1;
+package Projekt1.Services;
 
 import Projekt1.Entities.*;
+import Projekt1.Services.Interfaces.IMoveService;
 import lombok.Getter;
 
-public class MoveService
+public class MoveService implements IMoveService
 {
     @Getter
     private Map map;
