@@ -19,8 +19,8 @@ public class Ship
 
     public Ship()
     {
-        this.direction = Direction.North;
-        this.x = 0;
-        this.y = 0;
+        this.setDirection(Direction.North);
+        this.setX(0);
+        this.setY(0);
     }
 }
