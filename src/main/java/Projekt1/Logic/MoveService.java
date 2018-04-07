@@ -18,28 +18,33 @@ public class MoveService implements IMoveService
         this.ship = ship;
     }
 
+    @Override
     public void turnRight()
     {
         Direction newDirection = Direction.right(ship.getDirection());
         this.ship.setDirection(newDirection);
     }
 
+    @Override
     public void turnLeft()
     {
         Direction newDirection = Direction.left(ship.getDirection());
         this.ship.setDirection(newDirection);
     }
 
+    @Override
     public boolean moveForward()
     {
         return moveToCoordinate(getCoordinateAhead());
     }
 
+    @Override
     public boolean moveBack()
     {
         return moveToCoordinate(getCoordinateBehind());
     }
 
+    @Override
     public boolean shoot()
     {
         Coordinate targetCoordinate = getCoordinateAhead();
