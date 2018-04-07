@@ -3,6 +3,7 @@ package Projekt1.Logic;
 import Projekt1.Entities.Coordinate;
 import Projekt1.Entities.Field;
 import Projekt1.Entities.Map;
+import Projekt1.Entities.Ship;
 import Projekt1.Logic.Interfaces.IActionResult;
 import Projekt1.Logic.Interfaces.IPersistenceService;
 
@@ -38,5 +39,27 @@ public class FilePersistenceService implements IPersistenceService
         }
 
         return new ActionResult(true, "Map saved!");
+    }
+
+    @Override
+    public IActionResult saveShip(Ship ship)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(ship.getDirection().getSymbol());
+        sb.append(System.lineSeparator());
+        sb.append(ship.getCoordinate().X);
+        sb.append(System.lineSeparator());
+        sb.append(ship.getCoordinate().Y);
+
+        try (PrintWriter out = new PrintWriter("ship.txt"))
+        {
+            out.println(sb.toString());
+        }
+        catch(Exception e)
+        {
+            return new ActionResult(false,"Error when saving ship to file!");
+        }
+
+        return new ActionResult(true, "Ship saved!");
     }
 }
