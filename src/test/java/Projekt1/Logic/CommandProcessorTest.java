@@ -22,10 +22,10 @@ public class CommandProcessorTest
         IMoveService ms = new MoveServiceStub();
         ICommandProcessor cp = new CommandProcessor(ms);
         List<IActionResult> results = new ArrayList<>();
-        Character[] validCommands = { 'l', 'r', 'n', 'w', 's' };
+        Character[] commands = { 'l', 'r', 'n', 'w', 's' };
 
         // Act
-        for (Character c : validCommands)
+        for (Character c : commands)
         {
             IActionResult result = cp.execute(c);
             results.add(result);
@@ -33,5 +33,25 @@ public class CommandProcessorTest
 
         // Assert
         Assert.assertThat(results, Every.everyItem(hasProperty("status", equalTo(true))));
+    }
+
+    @Test
+    public void execute_WithInvalidCommands_ReturnsFalseResult()
+    {
+        // Arrange
+        IMoveService ms = new MoveServiceStub();
+        ICommandProcessor cp = new CommandProcessor(ms);
+        List<IActionResult> results = new ArrayList<>();
+        Character[] commands = { 'p', '@', 'x', 'q', '7' };
+
+        // Act
+        for (Character c : commands)
+        {
+            IActionResult result = cp.execute(c);
+            results.add(result);
+        }
+
+        // Assert
+        Assert.assertThat(results, Every.everyItem(hasProperty("status", equalTo(false))));
     }
 }
