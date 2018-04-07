@@ -28,4 +28,9 @@ public class MoveService
     {
         return this.getShip().getX();
     }
+
+    public int getShipY()
+    {
+        return this.getShip().getY();
+    }
 }

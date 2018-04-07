@@ -32,4 +32,17 @@ public class MoveServiceTest
         // Assert
         assertThat(ms.getShipX()).isEqualTo(shipX);
     }
+
+    @Test
+    public void getShipY_ReturnsShipY()
+    {
+        // Arrange
+        Map map = new Map(0);
+        int shipY = 3;
+        Ship ship = new Ship(Direction.North, 0, shipY);
+        MoveService ms = new MoveService(map, ship);
+
+        // Assert
+        assertThat(ms.getShipY()).isEqualTo(shipY);
+    }
 }
