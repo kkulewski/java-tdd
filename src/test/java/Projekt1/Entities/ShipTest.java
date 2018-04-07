@@ -17,4 +17,24 @@ public class ShipTest
         // Assert
         assertThat(ship.getDirection()).isEqualTo(Direction.North);
     }
+
+    @Test
+    public void newShip_XCoordinate_Is0()
+    {
+        // Arrange
+        Ship ship = new Ship();
+
+        // Act & Assert
+        assertThat(ship.getX()).isEqualTo(0);
+    }
+
+    @Test
+    public void newShip_YCoordinate_Is0()
+    {
+        // Arrange
+        Ship ship = new Ship();
+
+        // Act & Assert
+        assertThat(ship.getY()).isEqualTo(0);
+    }
 }
