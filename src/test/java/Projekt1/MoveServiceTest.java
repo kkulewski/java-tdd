@@ -90,4 +90,40 @@ public class MoveServiceTest
         // Assert
         assertThat(result).isTrue();
     }
+
+    @Test
+    public void moveForward_WhenFacingEast_CorrectlyChangesShipX()
+    {
+        // Arrange
+        Map map = new Map(2);
+
+        int initialX = 0;
+        Ship ship = new Ship(Direction.East, initialX, 0);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.moveForward();
+
+        // Assert
+        int expectedX = (initialX + 1) % map.getSize();
+        assertThat(ship.getX()).isEqualTo(expectedX);
+    }
+
+
+    @Test
+    public void moveForward_WhenFacingEast_DoesNotChangeShipY()
+    {
+        // Arrange
+        Map map = new Map(2);
+
+        int initialY = 0;
+        Ship ship = new Ship(Direction.East, 0, initialY);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.moveForward();
+
+        // Assert
+        assertThat(ship.getY()).isEqualTo(initialY);
+    }
 }
