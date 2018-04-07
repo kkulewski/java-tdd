@@ -248,4 +248,23 @@ public class MoveServiceTest
         // Assert
         assertThat(result).isTrue();
     }
+
+    @Test
+    public void shoot_WithLandAhead_ChangesLandIntoWater()
+    {
+        // Arrange
+        Map map = new Map(3);
+        Coordinate landCoordinate = new Coordinate(1, 0);
+        map.setField(landCoordinate, Field.Land);
+
+        Ship ship = new Ship(Direction.East);
+        MoveService ms = new MoveService(map, ship);
+
+        // Act
+        ms.shoot();
+
+        // Assert
+        Field fieldAfterShoot = map.getField(landCoordinate);
+        assertThat(fieldAfterShoot).isEqualTo(Field.Water);
+    }
 }
