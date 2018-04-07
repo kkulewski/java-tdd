@@ -8,7 +8,9 @@ public class Map
     public Map(int size)
     {
         this.size = size;
-        createEmptyMap();
+        this.fields = new Field[size][size];
+
+        fillWithWater();
     }
 
     public Field getField(int row, int column)
@@ -16,9 +18,8 @@ public class Map
         return fields[row][column];
     }
 
-    private void createEmptyMap()
+    private void fillWithWater()
     {
-        this.fields = new Field[this.size][this.size];
         for (int i = 0; i < this.size; i++)
         {
             for (int j = 0; j < this.size; j++)
