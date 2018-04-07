@@ -178,7 +178,7 @@ public class MoveServiceTest
     }
 
     @Test
-    public void shoot_WithWaterAhead_ReturnsFalse()
+    public void shoot_WithWaterAhead_ReturnsTrue()
     {
         // Arrange
         Map map = new Map(3);
@@ -189,7 +189,7 @@ public class MoveServiceTest
         IActionResult result = ms.shoot();
 
         // Assert
-        assertThat(result.getStatus()).isFalse();
+        assertThat(result.getStatus()).isTrue();
     }
 
     @Test

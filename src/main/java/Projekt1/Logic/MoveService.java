@@ -64,7 +64,7 @@ public class MoveService implements IMoveService
             return new ActionResult(true, "Shot into the water.");
         }
 
-        return new ActionResult(true, "Cannot shoot there.");
+        return new ActionResult(false, "Cannot shoot there.");
     }
 
     private IActionResult moveToCoordinate(Coordinate coordinate)
