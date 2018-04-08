@@ -27,3 +27,5 @@ hs_err_pid*
 
 # artifacts
 target
+map.txt
+ship.txt
