@@ -66,6 +66,11 @@ public class Map
             int x = random.nextInt(this.size);
             int y = random.nextInt(this.size);
 
+            if (x == 0 && y == 0)
+            {
+                continue;
+            }
+
             if (this.fields[x][y] != Field.Land)
             {
                 this.fields[x][y] = Field.Land;
