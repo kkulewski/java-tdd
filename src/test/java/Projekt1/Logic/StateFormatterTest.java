@@ -25,7 +25,7 @@ public class StateFormatterTest
 
         // Assert
         StringBuilder sb = new StringBuilder();
-        sb.append("   "); sb.append(System.lineSeparator());
+        sb.append("^  "); sb.append(System.lineSeparator());
         sb.append(" ##"); sb.append(System.lineSeparator());
         sb.append("  #"); sb.append(System.lineSeparator());
         String expected = sb.toString();
