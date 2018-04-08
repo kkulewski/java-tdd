@@ -28,7 +28,7 @@ public class StateFormatter implements IStateFormatter
             for (int y = 0; y < mapSize; y++)
             {
                 Coordinate c = new Coordinate(x, y);
-                if (c == shipCoordinate)
+                if (c.X == shipCoordinate.X && c.Y == shipCoordinate.Y)
                 {
                     sb.append(shipArrow);
                 }
