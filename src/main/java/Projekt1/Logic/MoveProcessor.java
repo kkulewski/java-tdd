@@ -97,8 +97,8 @@ public class MoveProcessor implements IMoveProcessor
 
     private Coordinate getCoordinate(int direction)
     {
-        int targetX = 0;
-        int targetY = 0;
+        int targetX = this.ship.getCoordinate().X;
+        int targetY = this.ship.getCoordinate().Y;
         int mapSize = this.map.getSize();
 
         if (this.ship.getDirection() == Direction.North)
