@@ -3,10 +3,10 @@ package Projekt1.Logic;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import Projekt1.Logic.Stubs.MoveServiceStub;
+import Projekt1.Logic.Stubs.MoveProcessorStub;
 import Projekt1.Logic.Interfaces.IActionResult;
 import Projekt1.Logic.Interfaces.ICommandProcessor;
-import Projekt1.Logic.Interfaces.IMoveService;
+import Projekt1.Logic.Interfaces.IMoveProcessor;
 import org.hamcrest.core.Every;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -23,8 +23,8 @@ public class CommandProcessorTest
     public void execute_WithValidCommands_ReturnsTrueResult()
     {
         // Arrange
-        IMoveService ms = new MoveServiceStub();
-        ICommandProcessor cp = new CommandProcessor(ms);
+        IMoveProcessor mp = new MoveProcessorStub();
+        ICommandProcessor cp = new CommandProcessor(mp);
         List<IActionResult> results = new ArrayList<>();
         Character[] commands = { 'l', 'r', 'n', 'w', 's' };
 
@@ -43,8 +43,8 @@ public class CommandProcessorTest
     public void execute_WithInvalidCommands_ReturnsFalseResult()
     {
         // Arrange
-        IMoveService ms = new MoveServiceStub();
-        ICommandProcessor cp = new CommandProcessor(ms);
+        IMoveProcessor mp = new MoveProcessorStub();
+        ICommandProcessor cp = new CommandProcessor(mp);
         List<IActionResult> results = new ArrayList<>();
         Character[] commands = { 'p', '@', 'x', 'q', '7' };
 
@@ -64,8 +64,8 @@ public class CommandProcessorTest
     public void execute_WithValidCommandFromParams_ReturnsTrueResult(char command)
     {
         // Arrange
-        IMoveService ms = new MoveServiceStub();
-        ICommandProcessor cp = new CommandProcessor(ms);
+        IMoveProcessor mp = new MoveProcessorStub();
+        ICommandProcessor cp = new CommandProcessor(mp);
 
         // Act
         IActionResult result = cp.execute(command);
@@ -79,8 +79,8 @@ public class CommandProcessorTest
     public void execute_WithCommandsFromCsv_ReturnsExpectedResults(char command, boolean result)
     {
         // Arrange
-        IMoveService ms = new MoveServiceStub();
-        ICommandProcessor cp = new CommandProcessor(ms);
+        IMoveProcessor mp = new MoveProcessorStub();
+        ICommandProcessor cp = new CommandProcessor(mp);
 
         // Act
         IActionResult actionResult = cp.execute(command);

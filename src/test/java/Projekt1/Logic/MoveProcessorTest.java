@@ -3,11 +3,11 @@ package Projekt1.Logic;
 import static org.assertj.core.api.Assertions.*;
 
 import Projekt1.Entities.*;
-import Projekt1.Logic.Interfaces.IMoveService;
+import Projekt1.Logic.Interfaces.IMoveProcessor;
 import Projekt1.Logic.Interfaces.IActionResult;
 import org.junit.jupiter.api.Test;
 
-public class MoveServiceTest
+public class MoveProcessorTest
 {
     @Test
     public void turnRight_WithShipFacingNorth_MakesItFaceEast()
@@ -15,10 +15,10 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(0);
         Ship ship = new Ship(Direction.North);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.turnRight();
+        mp.turnRight();
 
         // Assert
         assertThat(ship.getDirection()).isEqualTo(Direction.East);
@@ -30,10 +30,10 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(0);
         Ship ship = new Ship(Direction.North);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.turnLeft();
+        mp.turnLeft();
 
         // Assert
         assertThat(ship.getDirection()).isEqualTo(Direction.West);
@@ -45,10 +45,10 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(2);
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        IActionResult result = ms.moveForward();
+        IActionResult result = mp.moveForward();
 
         // Assert
         assertThat(result.getStatus()).isTrue();
@@ -61,10 +61,10 @@ public class MoveServiceTest
         Map map = new Map(2);
         Coordinate initial = new Coordinate(0, 0);
         Ship ship = new Ship(Direction.East, initial);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.moveForward();
+        mp.moveForward();
 
         // Assert
         Coordinate expected = new Coordinate(1, 0);
@@ -78,10 +78,10 @@ public class MoveServiceTest
         Map map = new Map(3);
         Coordinate initial = new Coordinate(0, 0);
         Ship ship = new Ship(Direction.West, initial);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.moveForward();
+        mp.moveForward();
 
         // Assert
         Coordinate expected = new Coordinate(2, 0);
@@ -95,10 +95,10 @@ public class MoveServiceTest
         Map map = new Map(3);
         Coordinate initial = new Coordinate(0, 2);
         Ship ship = new Ship(Direction.South, initial);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.moveForward();
+        mp.moveForward();
 
         // Assert
         Coordinate expected = new Coordinate(0, 0);
@@ -113,10 +113,10 @@ public class MoveServiceTest
         Coordinate landCoordinate = new Coordinate(1, 0);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        IActionResult result = ms.moveForward();
+        IActionResult result = mp.moveForward();
 
         // Assert
         assertThat(result.getStatus()).isFalse();
@@ -130,10 +130,10 @@ public class MoveServiceTest
         Coordinate landCoordinate = new Coordinate(1, 0);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.moveForward();
+        mp.moveForward();
 
         // Assert
         Coordinate expected = new Coordinate(0, 0);
@@ -148,13 +148,13 @@ public class MoveServiceTest
         Coordinate landCoordinate = new Coordinate(3, 0);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.moveForward(); // 0 -> 1
-        ms.moveForward(); // 1 -> 2
-        ms.moveForward(); // stop - land
-        ms.moveForward(); // stop - land
+        mp.moveForward(); // 0 -> 1
+        mp.moveForward(); // 1 -> 2
+        mp.moveForward(); // stop - land
+        mp.moveForward(); // stop - land
 
         // Assert
         Coordinate expected = new Coordinate(2, 0);
@@ -167,10 +167,10 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(5);
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.moveBack();
+        mp.moveBack();
 
         // Assert
         Coordinate expected = new Coordinate(4, 0);
@@ -183,10 +183,10 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(3);
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        IActionResult result = ms.shoot();
+        IActionResult result = mp.shoot();
 
         // Assert
         assertThat(result.getStatus()).isTrue();
@@ -198,10 +198,10 @@ public class MoveServiceTest
         // Arrange
         Map map = new Map(3);
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.shoot();
+        mp.shoot();
 
         // Assert
         Field fieldAhead = map.getField(new Coordinate(1, 0));
@@ -217,10 +217,10 @@ public class MoveServiceTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        IActionResult result = ms.shoot();
+        IActionResult result = mp.shoot();
 
         // Assert
         assertThat(result.getStatus()).isTrue();
@@ -235,10 +235,10 @@ public class MoveServiceTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.shoot();
+        mp.shoot();
 
         // Assert
         Field fieldAfterShoot = map.getField(landCoordinate);
@@ -254,13 +254,13 @@ public class MoveServiceTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        IMoveService ms = new MoveService(map, ship);
+        IMoveProcessor mp = new MoveProcessor(map, ship);
 
         // Act
-        ms.moveForward(); // 0 -> 1
-        ms.shoot(); // shoot land at 2
-        ms.moveForward(); // 1 -> 2
-        ms.moveForward(); // 2 -> 3
+        mp.moveForward(); // 0 -> 1
+        mp.shoot(); // shoot land at 2
+        mp.moveForward(); // 1 -> 2
+        mp.moveForward(); // 2 -> 3
 
         // Assert
         Coordinate expected = new Coordinate(3, 0);

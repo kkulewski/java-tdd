@@ -1,16 +1,16 @@
 package Projekt1.Logic;
 
 import Projekt1.Logic.Interfaces.ICommandProcessor;
-import Projekt1.Logic.Interfaces.IMoveService;
+import Projekt1.Logic.Interfaces.IMoveProcessor;
 import Projekt1.Logic.Interfaces.IActionResult;
 
 public class CommandProcessor implements ICommandProcessor
 {
-    private IMoveService moveService;
+    private IMoveProcessor moveProcessor;
 
-    public CommandProcessor(IMoveService moveService)
+    public CommandProcessor(IMoveProcessor moveProcessor)
     {
-        this.moveService = moveService;
+        this.moveProcessor = moveProcessor;
     }
 
     @Override
@@ -22,23 +22,23 @@ public class CommandProcessor implements ICommandProcessor
         switch (command)
         {
             case 'l':
-                result = moveService.turnLeft();
+                result = moveProcessor.turnLeft();
                 break;
 
             case 'r':
-                result = moveService.turnRight();
+                result = moveProcessor.turnRight();
                 break;
 
             case 'n':
-                result = moveService.moveForward();
+                result = moveProcessor.moveForward();
                 break;
 
             case 'w':
-                result = moveService.moveBack();
+                result = moveProcessor.moveBack();
                 break;
 
             case 's':
-                result = moveService.shoot();
+                result = moveProcessor.shoot();
                 break;
 
             default:

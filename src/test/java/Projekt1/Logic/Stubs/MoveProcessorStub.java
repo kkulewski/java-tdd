@@ -2,9 +2,9 @@ package Projekt1.Logic.Stubs;
 
 import Projekt1.Logic.ActionResult;
 import Projekt1.Logic.Interfaces.IActionResult;
-import Projekt1.Logic.Interfaces.IMoveService;
+import Projekt1.Logic.Interfaces.IMoveProcessor;
 
-public class MoveServiceStub implements IMoveService
+public class MoveProcessorStub implements IMoveProcessor
 {
     @Override
     public IActionResult turnRight()

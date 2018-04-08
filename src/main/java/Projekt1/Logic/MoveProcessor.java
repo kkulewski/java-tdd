@@ -1,11 +1,11 @@
 package Projekt1.Logic;
 
 import Projekt1.Entities.*;
-import Projekt1.Logic.Interfaces.IMoveService;
+import Projekt1.Logic.Interfaces.IMoveProcessor;
 import Projekt1.Logic.Interfaces.IActionResult;
 import lombok.Getter;
 
-public class MoveService implements IMoveService
+public class MoveProcessor implements IMoveProcessor
 {
     @Getter
     private Map map;
@@ -13,7 +13,7 @@ public class MoveService implements IMoveService
     @Getter
     private Ship ship;
 
-    public MoveService(Map map, Ship ship)
+    public MoveProcessor(Map map, Ship ship)
     {
         this.map = map;
         this.ship = ship;

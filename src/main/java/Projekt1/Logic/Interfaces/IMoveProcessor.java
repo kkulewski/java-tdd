@@ -1,6 +1,6 @@
 package Projekt1.Logic.Interfaces;
 
-public interface IMoveService
+public interface IMoveProcessor
 {
     public IActionResult turnRight();
     public IActionResult turnLeft();
