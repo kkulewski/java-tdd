@@ -97,6 +97,7 @@ public class FilePersistenceService implements IPersistenceService
         return new Map(fields);
     }
 
+    @Override
     public Ship loadShip()
     {
         List<String> lines = loadFileLines(SHIP_FILENAME);
@@ -131,7 +132,7 @@ public class FilePersistenceService implements IPersistenceService
         Scanner scanner;
         try
         {
-            file = new File(SHIP_FILENAME);
+            file = new File(fileName);
             scanner = new Scanner(file);
         }
         catch (Exception e)
