@@ -9,7 +9,6 @@ public enum Direction
     South(2, 'S'),
     West(3, 'W');
 
-    @Getter
     private int index;
 
     @Getter
