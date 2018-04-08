@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,21 @@ public class CommandProcessorTest
 
         // Assert
         Assert.assertThat(results, Every.everyItem(hasProperty("status", equalTo(false))));
+    }
+
+    @ParameterizedTest(name = "{index} => command={0}")
+    @ValueSource(chars = {'r', 'l', 's', 'n', 'w'})
+    public void execute_WithValidCommandFromParams_ReturnsTrueResult(char command)
+    {
+        // Arrange
+        IMoveService ms = new MoveServiceStub();
+        ICommandProcessor cp = new CommandProcessor(ms);
+
+        // Act
+        IActionResult result = cp.execute(command);
+
+        // Assert
+        Assert.assertTrue(result.getStatus());
     }
 
     @ParameterizedTest(name = "{index} => command={0}, result={1}")
