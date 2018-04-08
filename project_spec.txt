@@ -11,7 +11,7 @@ java -cp target/myProjectApp-1.0-SNAPSHOT.jar Projekt1.App
 >> Wszystkie spelnione.
 
 3. Przypadki testowe.
->> ok. 100
+>> ok. 60
 
 4. Uzycie roznych asercji.
 >> proste: CoordinateTest
