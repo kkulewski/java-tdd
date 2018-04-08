@@ -103,22 +103,22 @@ public class MoveProcessor implements IMoveProcessor
 
         if (this.ship.getDirection() == Direction.North)
         {
-            targetY = (this.ship.getCoordinate().Y + mapSize - direction) % mapSize;
+            targetX = (this.ship.getCoordinate().X + mapSize - direction) % mapSize;
         }
 
         if (this.ship.getDirection() == Direction.South)
         {
-            targetY = (this.ship.getCoordinate().Y + mapSize + direction) % mapSize;
+            targetX = (this.ship.getCoordinate().X + mapSize + direction) % mapSize;
         }
 
         if (this.ship.getDirection() == Direction.East)
         {
-            targetX = (this.ship.getCoordinate().X + mapSize + direction) % mapSize;
+            targetY = (this.ship.getCoordinate().Y + mapSize + direction) % mapSize;
         }
 
         if (this.ship.getDirection() == Direction.West)
         {
-            targetX = (this.ship.getCoordinate().X + mapSize - direction) % mapSize;
+            targetY = (this.ship.getCoordinate().Y + mapSize - direction) % mapSize;
         }
 
         return new Coordinate(targetX, targetY);

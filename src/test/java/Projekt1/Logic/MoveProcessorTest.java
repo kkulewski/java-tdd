@@ -67,7 +67,7 @@ public class MoveProcessorTest
         mp.moveForward();
 
         // Assert
-        Coordinate expected = new Coordinate(1, 0);
+        Coordinate expected = new Coordinate(0, 1);
         assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
@@ -84,7 +84,7 @@ public class MoveProcessorTest
         mp.moveForward();
 
         // Assert
-        Coordinate expected = new Coordinate(2, 0);
+        Coordinate expected = new Coordinate(0, 2);
         assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
@@ -93,7 +93,7 @@ public class MoveProcessorTest
     {
         // Arrange
         Map map = new Map(3);
-        Coordinate initial = new Coordinate(0, 2);
+        Coordinate initial = new Coordinate(2, 0);
         Ship ship = new Ship(Direction.South, initial);
         IMoveProcessor mp = new MoveProcessor(map, ship);
 
@@ -110,7 +110,7 @@ public class MoveProcessorTest
     {
         // Arrange
         Map map = new Map(3);
-        Coordinate landCoordinate = new Coordinate(1, 0);
+        Coordinate landCoordinate = new Coordinate(0, 1);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
         IMoveProcessor mp = new MoveProcessor(map, ship);
@@ -127,7 +127,7 @@ public class MoveProcessorTest
     {
         // Arrange
         Map map = new Map(3);
-        Coordinate landCoordinate = new Coordinate(1, 0);
+        Coordinate landCoordinate = new Coordinate(0, 1);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
         IMoveProcessor mp = new MoveProcessor(map, ship);
@@ -145,7 +145,7 @@ public class MoveProcessorTest
     {
         // Arrange
         Map map = new Map(4);
-        Coordinate landCoordinate = new Coordinate(3, 0);
+        Coordinate landCoordinate = new Coordinate(0, 3);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
         IMoveProcessor mp = new MoveProcessor(map, ship);
@@ -157,7 +157,7 @@ public class MoveProcessorTest
         mp.moveForward(); // stop - land
 
         // Assert
-        Coordinate expected = new Coordinate(2, 0);
+        Coordinate expected = new Coordinate(0, 2);
         assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
@@ -173,7 +173,7 @@ public class MoveProcessorTest
         mp.moveBack();
 
         // Assert
-        Coordinate expected = new Coordinate(4, 0);
+        Coordinate expected = new Coordinate(0, 4);
         assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 
@@ -204,7 +204,7 @@ public class MoveProcessorTest
         mp.shoot();
 
         // Assert
-        Field fieldAhead = map.getField(new Coordinate(1, 0));
+        Field fieldAhead = map.getField(new Coordinate(0, 1));
         assertThat(fieldAhead).isEqualTo(Field.Water);
     }
 
@@ -231,7 +231,7 @@ public class MoveProcessorTest
     {
         // Arrange
         Map map = new Map(3);
-        Coordinate landCoordinate = new Coordinate(1, 0);
+        Coordinate landCoordinate = new Coordinate(0, 1);
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
@@ -250,7 +250,7 @@ public class MoveProcessorTest
     {
         // Arrange
         Map map = new Map(4);
-        Coordinate landCoordinate = new Coordinate(2, 0);
+        Coordinate landCoordinate = new Coordinate(0, 2);
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
@@ -263,7 +263,7 @@ public class MoveProcessorTest
         mp.moveForward(); // 2 -> 3
 
         // Assert
-        Coordinate expected = new Coordinate(3, 0);
+        Coordinate expected = new Coordinate(0, 3);
         assertThat(ship.getCoordinate()).isEqualTo(expected);
     }
 }
