@@ -19,4 +19,14 @@ public class ActionResultTest
         // Assert
         assertThat(result.getMessage()).contains(message);
     }
+
+    @Test
+    public void defaultErrorActionResult_ContainsErrorMessage()
+    {
+        // Arrange & Act
+        IActionResult result = IActionResult.getErrorResult();
+
+        // Assert
+        assertThat(result.getMessage()).contains("Error");
+    }
 }
