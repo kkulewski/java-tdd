@@ -1,0 +1,64 @@
+## URUCHOMIENIE
+java -cp target/myProjectApp-1.0-SNAPSHOT.jar Projekt1.App
+
+
+## PODSTAWOWE
+
+1. Kompilacja i uruchomienie bezbledne projektu.
+>> Travis CI
+
+2. Uwzglednienie powyzszych wymagan.
+>> Wszystkie spelnione.
+
+3. Przypadki testowe.
+>> ok. 100
+
+4. Uzycie roznych asercji.
+>> proste: CoordinateTest
+>> exception: MapTest
+>> assertJ: MoveServiceTest
+>> FilePersistenceTest
+>> CSV param: CommandProcessorTest
+
+5. Uwzglednienie wyjatkow.
+>> MapTest
+
+6. Zastosowanie biblioteki Hamcrest.
+>> FilePersistenceTest
+
+7. Pokrycie kodu.
+>> 80-90%
+
+8. Styl kodu.
+>> IoC + programowanie do interfejsu a nie implementacji
+>> SOLID
+
+9. Zastosowanie metodyki TDD.
+>> po stworzeniu warstwy domeny - caly czas
+
+10. Zastosowanie testow parametrycznych.
+>> param: CommandProcessorTest
+
+
+
+## DODATKOWE
+
+1. Uzycie biblioteki AssertJ.
+>> assertJ: MoveServiceTest
+
+2. Skonfigurowanie TravisCI do automatycznego budowania projektu.
+>> skonfigurowany od poczatku
+
+3. Zastosowanie testow parametrycznych przy uzyciu plikow testowych.
+>> CSV param: CommandProcessorTest
+
+4. Zastosowanie JAVA 8 lub wyzej.
+>> JAVA 8
+
+5. Zastosowanie dodatkowych roznych wymagan do gry.
+>> mozliwosc przekroczenia granicy mapy ("podroz dookola swiata")
+>> mozliwosc zniszczenia ladu (strzal - s)
+
+6. Uzycie innych technologii nie pokazywanych na zajeciach.
+>> Lombok (auto gettery i settery)
+
