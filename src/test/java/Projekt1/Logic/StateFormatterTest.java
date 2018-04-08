@@ -25,9 +25,11 @@ public class StateFormatterTest
 
         // Assert
         StringBuilder sb = new StringBuilder();
-        sb.append("^  "); sb.append(System.lineSeparator());
-        sb.append(" ##"); sb.append(System.lineSeparator());
-        sb.append("  #"); sb.append(System.lineSeparator());
+        sb.append("#####"); sb.append(System.lineSeparator());
+        sb.append("#^  #"); sb.append(System.lineSeparator());
+        sb.append("# OO#"); sb.append(System.lineSeparator());
+        sb.append("#  O#"); sb.append(System.lineSeparator());
+        sb.append("#####"); sb.append(System.lineSeparator());
         String expected = sb.toString();
 
         assertThat(result).contains(expected);

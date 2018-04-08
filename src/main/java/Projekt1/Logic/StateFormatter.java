@@ -23,8 +23,16 @@ public class StateFormatter implements IStateFormatter
         int mapSize = map.getSize();
         StringBuilder sb = new StringBuilder();
 
+        for (int x = 0; x < mapSize + 2; x++)
+        {
+            sb.append("#");
+        }
+
+        sb.append(System.lineSeparator());
+
         for (int x = 0; x < mapSize; x++)
         {
+            sb.append("#");
             for (int y = 0; y < mapSize; y++)
             {
                 Coordinate c = new Coordinate(x, y);
@@ -39,7 +47,13 @@ public class StateFormatter implements IStateFormatter
                 }
             }
 
+            sb.append("#");
             sb.append(System.lineSeparator());
+        }
+
+        for (int x = 0; x < mapSize + 2; x++)
+        {
+            sb.append("#");
         }
 
         sb.append(System.lineSeparator());

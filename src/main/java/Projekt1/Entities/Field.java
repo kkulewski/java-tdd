@@ -5,7 +5,7 @@ import lombok.Getter;
 public enum Field
 {
     Water(' '),
-    Land('#');
+    Land('O');
 
     @Getter
     private char symbol;
