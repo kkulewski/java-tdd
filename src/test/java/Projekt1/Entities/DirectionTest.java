@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class DirectionTest
 {
     @Test
-    void right_GivenNorth_ReturnsEast()
+    void rightGivenNorthReturnsEast()
     {
         // Arrange
         Direction start = Direction.North;
@@ -19,7 +19,7 @@ class DirectionTest
     }
 
     @Test
-    void right_GivenWest_ReturnsNorth()
+    void rightGivenWestReturnsNorth()
     {
         // Arrange
         Direction start = Direction.West;
@@ -32,7 +32,7 @@ class DirectionTest
     }
 
     @Test
-    void right_GivenEast_CalledTwoTimes_ReturnsWest()
+    void rightGivenEastCalledTwoTimesReturnsWest()
     {
         // Arrange
         Direction start = Direction.East;
@@ -45,7 +45,7 @@ class DirectionTest
     }
 
     @Test
-    void left_GivenNorth_ReturnsWest()
+    void leftGivenNorthReturnsWest()
     {
         // Arrange
         Direction start = Direction.North;
@@ -58,7 +58,7 @@ class DirectionTest
     }
 
     @Test
-    void left_GivenWest_ReturnsSouth()
+    void leftGivenWestReturnsSouth()
     {
         // Arrange
         Direction start = Direction.West;
@@ -71,13 +71,12 @@ class DirectionTest
     }
 
     @Test
-    void left_GivenNorth_AfterFullCycle_ReturnsNorth()
+    void leftGivenNorthAfterFullCycleReturnsNorth()
     {
         // Arrange
-        Direction start = Direction.North;
+        Direction result = Direction.North;
 
         // Act
-        Direction result = start;
         for (int i = 0; i < Direction.values().length; i++)
         {
             result = Direction.left(result);

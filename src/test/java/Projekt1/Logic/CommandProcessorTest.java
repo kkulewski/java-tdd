@@ -20,18 +20,17 @@ import java.util.List;
 
 class CommandProcessorTest
 {
-    IMoveProcessor mp;
-    ICommandProcessor cp;
+    private ICommandProcessor cp;
 
     @BeforeEach
     void setup()
     {
-        mp = new MoveProcessorStub();
+        IMoveProcessor mp = new MoveProcessorStub();
         cp = new CommandProcessor(mp);
     }
 
     @Test
-    void execute_WithValidCommands_ReturnsTrueResult()
+    void executeWithValidCommandsReturnsTrueResult()
     {
         // Arrange
         List<IActionResult> results = new ArrayList<>();
@@ -49,7 +48,7 @@ class CommandProcessorTest
     }
 
     @Test
-    void execute_WithInvalidCommands_ReturnsFalseResult()
+    void executeWithInvalidCommandsReturnsFalseResult()
     {
         // Arrange
         List<IActionResult> results = new ArrayList<>();
@@ -68,7 +67,7 @@ class CommandProcessorTest
 
     @ParameterizedTest(name = "{index} => command={0}")
     @ValueSource(chars = {'r', 'l', 's', 'n', 'w'})
-    void execute_WithValidCommandFromParams_ReturnsTrueResult(char command)
+    void executeWithValidCommandFromParamsReturnsTrueResult(char command)
     {
         // Act
         IActionResult result = cp.execute(command);
@@ -79,7 +78,7 @@ class CommandProcessorTest
 
     @ParameterizedTest(name = "{index} => command={0}, result={1}")
     @CsvFileSource(resources = "/commands.csv")
-    void execute_WithCommandsFromCsv_ReturnsExpectedResults(char command, boolean result)
+    void executeWithCommandsFromCsvReturnsExpectedResults(char command, boolean result)
     {
         // Act
         IActionResult actionResult = cp.execute(command);

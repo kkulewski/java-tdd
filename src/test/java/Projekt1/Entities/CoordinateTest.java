@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class CoordinateTest
 {
     @Test
-    void Coordinates_WithSameXAndY_AreEqual()
+    void CoordinatesWithSameXAndYAreEqual()
     {
         // Arrange
         Coordinate coordinate1 = new Coordinate(5, 0);
@@ -17,7 +17,7 @@ class CoordinateTest
     }
 
     @Test
-    void Coordinates_WithDifferentX_AreNotEqual()
+    void CoordinatesWithDifferentXAreNotEqual()
     {
         // Arrange
         Coordinate coordinate1 = new Coordinate(5, 0);
@@ -28,7 +28,7 @@ class CoordinateTest
     }
 
     @Test
-    void Coordinates_WithDifferentY_AreNotEqual()
+    void CoordinatesWithDifferentYAreNotEqual()
     {
         // Arrange
         Coordinate coordinate1 = new Coordinate(5, 0);
@@ -39,7 +39,7 @@ class CoordinateTest
     }
 
     @Test
-    void Coordinates_WithDifferentXAndY_AreNotEqual()
+    void CoordinatesWithDifferentXAndYAreNotEqual()
     {
         // Arrange
         Coordinate coordinate1 = new Coordinate(5, 0);

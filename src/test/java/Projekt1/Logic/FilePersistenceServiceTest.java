@@ -15,7 +15,7 @@ import java.util.List;
 
 class FilePersistenceServiceTest
 {
-    IPersistenceService ps;
+    private IPersistenceService ps;
 
     @BeforeEach
     void setup()
@@ -24,7 +24,7 @@ class FilePersistenceServiceTest
     }
 
     @Test
-    void saveMap_SavesMapToFile()
+    void saveMapSavesMapToFile()
     {
         // Arrange
         Map map = new Map(8, true);
@@ -39,7 +39,7 @@ class FilePersistenceServiceTest
     }
 
     @Test
-    void saveShip_SavesShipToFile()
+    void saveShipSavesShipToFile()
     {
         // Arrange
         Ship ship = new Ship(Direction.West, new Coordinate(2, 3));
@@ -54,7 +54,7 @@ class FilePersistenceServiceTest
     }
 
     @Test
-    void loadMap_LoadsPreviouslySavedMapFromFile()
+    void loadMapLoadsPreviouslySavedMapFromFile()
     {
         // Arrange
         int size = 8;
@@ -82,7 +82,7 @@ class FilePersistenceServiceTest
     }
 
     @Test
-    void loadShip_LoadsPreviouslySavedShipFromFile()
+    void loadShipLoadsPreviouslySavedShipFromFile()
     {
         // Arrange
         Ship ship = new Ship(Direction.West, new Coordinate(2, 3));

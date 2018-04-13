@@ -84,11 +84,6 @@ public class MoveProcessor implements IMoveProcessor
             return new ActionResult(true, "Moved.");
         }
 
-        if (targetField == Field.Water)
-        {
-            return new ActionResult(true, "Shot into the water.");
-        }
-
         return new ActionResult(false, "Cannot move there.");
     }
 

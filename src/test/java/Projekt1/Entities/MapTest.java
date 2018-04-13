@@ -9,61 +9,61 @@ import java.util.List;
 class MapTest
 {
     @Test
-    void getField_GivenInvalidRowIndex_ThrowsIndexOutOfBoundsException()
+    void getFieldGivenInvalidRowIndexThrowsIndexOutOfBoundsException()
     {
         // Arrange
         Map map = new Map(1);
-        Coordinate coord = new Coordinate(1,0);
+        Coordinate c = new Coordinate(1,0);
 
         // Act & Assert
-        assertThatThrownBy(() -> map.getField(coord))
+        assertThatThrownBy(() -> map.getField(c))
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
 
     @Test
-    void getField_GivenInvalidColumnIndex_ThrowsIndexOutOfBoundsException()
+    void getFieldGivenInvalidColumnIndexThrowsIndexOutOfBoundsException()
     {
         // Arrange
         Map map = new Map(1);
-        Coordinate coord = new Coordinate(0,1);
+        Coordinate c = new Coordinate(0,1);
 
         // Act & Assert
-        assertThatThrownBy(() -> map.getField(coord))
+        assertThatThrownBy(() -> map.getField(c))
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
 
     @Test
-    void getField_GivenInvalidRowAndColumnIndex_ThrowsIndexOutOfBoundsException()
+    void getFieldGivenInvalidRowAndColumnIndexThrowsIndexOutOfBoundsException()
     {
         // Arrange
         Map map = new Map(1);
-        Coordinate coord = new Coordinate(1,1);
+        Coordinate c = new Coordinate(1,1);
 
         // Act & Assert
-        assertThatThrownBy(() -> map.getField(coord))
+        assertThatThrownBy(() -> map.getField(c))
                 .isInstanceOf(IndexOutOfBoundsException.class);
     }
 
     @Test
-    void getField_GivenValidIndex_WhenMapIsEmpty_ReturnsWaterField()
+    void getFieldGivenValidIndexWhenMapIsEmptyReturnsWaterField()
     {
         // Arrange
         Map map = new Map(2);
-        Coordinate coord = new Coordinate(1, 1);
+        Coordinate c = new Coordinate(1, 1);
 
         // Act
-        Field field = map.getField(coord);
+        Field field = map.getField(c);
 
         // Assert
         assertThat(field).isEqualTo(Field.Water);
     }
 
     @Test
-    void newMap_WhenEmpty_IsFilledWithWaterFields()
+    void newMapWhenEmptyIsFilledWithWaterFields()
     {
         // Arrange
         int size = 4;
-        List<Field> mapFields = new ArrayList<Field>();
+        List<Field> mapFields = new ArrayList<>();
 
         // Act
         Map map = new Map(size);
@@ -73,8 +73,8 @@ class MapTest
         {
             for (int y = 0; y < size; y++)
             {
-                Coordinate coord = new Coordinate(x, y);
-                mapFields.add(map.getField(coord));
+                Coordinate c = new Coordinate(x, y);
+                mapFields.add(map.getField(c));
             }
         }
 
@@ -82,11 +82,11 @@ class MapTest
     }
 
     @Test
-    void newMap_WithLandAndSize10_Contains10LandFields()
+    void newMapWithLandAndSize10Contains10LandFields()
     {
         // Arrange
         int size = 10;
-        List<Field> landFields = new ArrayList<Field>();
+        List<Field> landFields = new ArrayList<>();
 
         // Act
         Map map = new Map(size, true);
@@ -96,10 +96,10 @@ class MapTest
         {
             for (int y = 0; y < size; y++)
             {
-                Coordinate coord = new Coordinate(x, y);
-                if (map.getField(coord) == Field.Land)
+                Coordinate c = new Coordinate(x, y);
+                if (map.getField(c) == Field.Land)
                 {
-                    landFields.add(map.getField(coord));
+                    landFields.add(map.getField(c));
                 }
             }
         }

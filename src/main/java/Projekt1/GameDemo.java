@@ -24,7 +24,7 @@ public class GameDemo
         this.persistenceService = new FilePersistenceService();
     }
 
-    public void run()
+    void run()
     {
         processModeLoop();
         processCommandLoop();
@@ -153,7 +153,7 @@ public class GameDemo
         System.out.println("Game saved successfully.");
     }
 
-    public void processCommands(char[] commands)
+    private void processCommands(char[] commands)
     {
         for (char c : commands)
         {

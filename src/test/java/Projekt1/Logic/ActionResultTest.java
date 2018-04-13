@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class ActionResultTest
 {
     @Test
-    void newActionResult_WithMessage_HasCorrectMessage()
+    void newActionResultWithMessageHasCorrectMessage()
     {
         // Arrange
         String message = "Example message";
@@ -21,7 +21,7 @@ class ActionResultTest
     }
 
     @Test
-    void defaultErrorActionResult_ContainsErrorMessage()
+    void defaultErrorActionResultContainsErrorMessage()
     {
         // Act
         IActionResult result = IActionResult.getErrorResult();

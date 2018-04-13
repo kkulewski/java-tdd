@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class StateFormatterTest
 {
     @Test
-    void getCurrentState_ReturnsExpectedString()
+    void getCurrentStateReturnsExpectedString()
     {
         // Arrange
         Field[] row1 = { Field.Water, Field.Water, Field.Water };

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class MoveProcessorTest
 {
     @Test
-    void turnRight_WithShipFacingNorth_MakesItFaceEast()
+    void turnRightWithShipFacingNorthMakesItFaceEast()
     {
         // Arrange
         Map map = new Map(0);
@@ -25,7 +25,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void turnLeft_WithShipFacingNorth_MakesItFaceWest()
+    void turnLeftWithShipFacingNorthMakesItFaceWest()
     {
         // Arrange
         Map map = new Map(0);
@@ -40,7 +40,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveForward_WithoutMapBoundCrossing_And_WithWaterInTargetField_ReturnsTrue()
+    void moveForwardWithoutMapBoundCrossingAndWithWaterInTargetFieldReturnsTrue()
     {
         // Arrange
         Map map = new Map(2);
@@ -55,7 +55,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveForward_WhenFacingEast_CorrectlyChangesShipCoordinates()
+    void moveForwardWhenFacingEastCorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(2);
@@ -72,7 +72,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveForward_WithHorizontalMapBoundCross_CorrectlyChangesShipCoordinates()
+    void moveForwardWithHorizontalMapBoundCrossCorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(3);
@@ -89,7 +89,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveForward_WithVerticalMapBoundCross_CorrectlyChangesShipCoordinates()
+    void moveForwardWithVerticalMapBoundCrossCorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(3);
@@ -106,7 +106,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveForward_WithLandInTargetField_ReturnsFalse()
+    void moveForwardWithLandInTargetFieldReturnsFalse()
     {
         // Arrange
         Map map = new Map(3);
@@ -123,7 +123,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveForward_WithLandInTargetField_DoesNotMoveShip()
+    void moveForwardWithLandInTargetFieldDoesNotMoveShip()
     {
         // Arrange
         Map map = new Map(3);
@@ -141,7 +141,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveForward_SucceedsUntilTargetFieldIsLand()
+    void moveForwardSucceedsUntilTargetFieldIsLand()
     {
         // Arrange
         Map map = new Map(4);
@@ -162,7 +162,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveBack_WithHorizontalMapBoundCross_CorrectlyChangesShipCoordinates()
+    void moveBackWithHorizontalMapBoundCrossCorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(5);
@@ -178,7 +178,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void shoot_WithWaterAhead_ReturnsTrue()
+    void shootWithWaterAheadReturnsTrue()
     {
         // Arrange
         Map map = new Map(3);
@@ -193,7 +193,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void shoot_WithWaterAhead_DoesNotChangeFieldType()
+    void shootWithWaterAheadDoesNotChangeFieldType()
     {
         // Arrange
         Map map = new Map(3);
@@ -209,7 +209,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void shoot_WithLandAhead_ReturnsTrue()
+    void shootWithLandAheadReturnsTrue()
     {
         // Arrange
         Map map = new Map(3);
@@ -227,7 +227,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void shoot_WithLandAhead_ChangesLandIntoWater()
+    void shootWithLandAheadChangesLandIntoWater()
     {
         // Arrange
         Map map = new Map(3);
@@ -246,7 +246,7 @@ class MoveProcessorTest
     }
 
     @Test
-    void moveForward_WithLandAhead_AfterShoot_CanBeContinued()
+    void moveForwardWithLandAheadAfterShootCanBeContinued()
     {
         // Arrange
         Map map = new Map(4);

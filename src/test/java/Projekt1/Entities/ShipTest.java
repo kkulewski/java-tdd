@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class ShipTest
 {
     @Test
-    void newShip_FacesNorthDirection_ByDefault()
+    void newShipFacesNorthDirectionByDefault()
     {
         // Arrange
         Ship ship = new Ship();
@@ -19,7 +19,7 @@ class ShipTest
     }
 
     @Test
-    void newShip_XCoordinate_Is0()
+    void newShipXCoordinateIs0()
     {
         // Arrange
         Ship ship = new Ship();
@@ -29,7 +29,7 @@ class ShipTest
     }
 
     @Test
-    void newShip_YCoordinate_Is0()
+    void newShipYCoordinateIs0()
     {
         // Arrange
         Ship ship = new Ship();
@@ -39,7 +39,7 @@ class ShipTest
     }
 
     @Test
-    void newShip_WithCustomDirectionSouth_FacesSouth()
+    void newShipWithCustomDirectionSouthFacesSouth()
     {
         // Arrange
         Coordinate coordinate = new Coordinate(0, 0);
@@ -50,7 +50,7 @@ class ShipTest
     }
 
     @Test
-    void newShip_WithCustomX5_XCoordinate_Is5()
+    void newShipWithCustomX5XCoordinateIs5()
     {
         // Arrange
         Coordinate coordinate = new Coordinate(5, 0);
@@ -61,7 +61,7 @@ class ShipTest
     }
 
     @Test
-    void newShip_WithCustomY5_YCoordinate_Is5()
+    void newShipWithCustomY5YCoordinateIs5()
     {
         // Arrange
         Coordinate coordinate = new Coordinate(0, 5);
