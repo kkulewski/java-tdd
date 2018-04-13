@@ -3,10 +3,10 @@ package Projekt1.Entities;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class DirectionTest
+class DirectionTest
 {
     @Test
-    public void right_GivenNorth_ReturnsEast()
+    void right_GivenNorth_ReturnsEast()
     {
         // Arrange
         Direction start = Direction.North;
@@ -19,7 +19,7 @@ public class DirectionTest
     }
 
     @Test
-    public void right_GivenWest_ReturnsNorth()
+    void right_GivenWest_ReturnsNorth()
     {
         // Arrange
         Direction start = Direction.West;
@@ -32,7 +32,7 @@ public class DirectionTest
     }
 
     @Test
-    public void right_GivenEast_CalledTwoTimes_ReturnsWest()
+    void right_GivenEast_CalledTwoTimes_ReturnsWest()
     {
         // Arrange
         Direction start = Direction.East;
@@ -45,7 +45,7 @@ public class DirectionTest
     }
 
     @Test
-    public void left_GivenNorth_ReturnsWest()
+    void left_GivenNorth_ReturnsWest()
     {
         // Arrange
         Direction start = Direction.North;
@@ -58,7 +58,7 @@ public class DirectionTest
     }
 
     @Test
-    public void left_GivenWest_ReturnsSouth()
+    void left_GivenWest_ReturnsSouth()
     {
         // Arrange
         Direction start = Direction.West;
@@ -71,7 +71,7 @@ public class DirectionTest
     }
 
     @Test
-    public void left_GivenNorth_AfterFullCycle_ReturnsNorth()
+    void left_GivenNorth_AfterFullCycle_ReturnsNorth()
     {
         // Arrange
         Direction start = Direction.North;

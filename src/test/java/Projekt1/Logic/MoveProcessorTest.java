@@ -7,10 +7,10 @@ import Projekt1.Logic.Interfaces.IMoveProcessor;
 import Projekt1.Logic.Interfaces.IActionResult;
 import org.junit.jupiter.api.Test;
 
-public class MoveProcessorTest
+class MoveProcessorTest
 {
     @Test
-    public void turnRight_WithShipFacingNorth_MakesItFaceEast()
+    void turnRight_WithShipFacingNorth_MakesItFaceEast()
     {
         // Arrange
         Map map = new Map(0);
@@ -25,7 +25,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void turnLeft_WithShipFacingNorth_MakesItFaceWest()
+    void turnLeft_WithShipFacingNorth_MakesItFaceWest()
     {
         // Arrange
         Map map = new Map(0);
@@ -40,7 +40,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveForward_WithoutMapBoundCrossing_And_WithWaterInTargetField_ReturnsTrue()
+    void moveForward_WithoutMapBoundCrossing_And_WithWaterInTargetField_ReturnsTrue()
     {
         // Arrange
         Map map = new Map(2);
@@ -55,7 +55,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveForward_WhenFacingEast_CorrectlyChangesShipCoordinates()
+    void moveForward_WhenFacingEast_CorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(2);
@@ -72,7 +72,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveForward_WithHorizontalMapBoundCross_CorrectlyChangesShipCoordinates()
+    void moveForward_WithHorizontalMapBoundCross_CorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(3);
@@ -89,7 +89,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveForward_WithVerticalMapBoundCross_CorrectlyChangesShipCoordinates()
+    void moveForward_WithVerticalMapBoundCross_CorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(3);
@@ -106,7 +106,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveForward_WithLandInTargetField_ReturnsFalse()
+    void moveForward_WithLandInTargetField_ReturnsFalse()
     {
         // Arrange
         Map map = new Map(3);
@@ -123,7 +123,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveForward_WithLandInTargetField_DoesNotMoveShip()
+    void moveForward_WithLandInTargetField_DoesNotMoveShip()
     {
         // Arrange
         Map map = new Map(3);
@@ -141,7 +141,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveForward_SucceedsUntilTargetFieldIsLand()
+    void moveForward_SucceedsUntilTargetFieldIsLand()
     {
         // Arrange
         Map map = new Map(4);
@@ -162,7 +162,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveBack_WithHorizontalMapBoundCross_CorrectlyChangesShipCoordinates()
+    void moveBack_WithHorizontalMapBoundCross_CorrectlyChangesShipCoordinates()
     {
         // Arrange
         Map map = new Map(5);
@@ -178,7 +178,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void shoot_WithWaterAhead_ReturnsTrue()
+    void shoot_WithWaterAhead_ReturnsTrue()
     {
         // Arrange
         Map map = new Map(3);
@@ -193,7 +193,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void shoot_WithWaterAhead_DoesNotChangeFieldType()
+    void shoot_WithWaterAhead_DoesNotChangeFieldType()
     {
         // Arrange
         Map map = new Map(3);
@@ -209,7 +209,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void shoot_WithLandAhead_ReturnsTrue()
+    void shoot_WithLandAhead_ReturnsTrue()
     {
         // Arrange
         Map map = new Map(3);
@@ -227,7 +227,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void shoot_WithLandAhead_ChangesLandIntoWater()
+    void shoot_WithLandAhead_ChangesLandIntoWater()
     {
         // Arrange
         Map map = new Map(3);
@@ -246,7 +246,7 @@ public class MoveProcessorTest
     }
 
     @Test
-    public void moveForward_WithLandAhead_AfterShoot_CanBeContinued()
+    void moveForward_WithLandAhead_AfterShoot_CanBeContinued()
     {
         // Arrange
         Map map = new Map(4);

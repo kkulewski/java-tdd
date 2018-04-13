@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapTest
+class MapTest
 {
     @Test
-    public void getField_GivenInvalidRowIndex_ThrowsIndexOutOfBoundsException()
+    void getField_GivenInvalidRowIndex_ThrowsIndexOutOfBoundsException()
     {
         // Arrange
         Map map = new Map(1);
@@ -21,7 +21,7 @@ public class MapTest
     }
 
     @Test
-    public void getField_GivenInvalidColumnIndex_ThrowsIndexOutOfBoundsException()
+    void getField_GivenInvalidColumnIndex_ThrowsIndexOutOfBoundsException()
     {
         // Arrange
         Map map = new Map(1);
@@ -33,7 +33,7 @@ public class MapTest
     }
 
     @Test
-    public void getField_GivenInvalidRowAndColumnIndex_ThrowsIndexOutOfBoundsException()
+    void getField_GivenInvalidRowAndColumnIndex_ThrowsIndexOutOfBoundsException()
     {
         // Arrange
         Map map = new Map(1);
@@ -45,7 +45,7 @@ public class MapTest
     }
 
     @Test
-    public void getField_GivenValidIndex_WhenMapIsEmpty_ReturnsWaterField()
+    void getField_GivenValidIndex_WhenMapIsEmpty_ReturnsWaterField()
     {
         // Arrange
         Map map = new Map(2);
@@ -59,7 +59,7 @@ public class MapTest
     }
 
     @Test
-    public void newMap_WhenEmpty_IsFilledWithWaterFields()
+    void newMap_WhenEmpty_IsFilledWithWaterFields()
     {
         // Arrange
         int size = 4;
@@ -82,7 +82,7 @@ public class MapTest
     }
 
     @Test
-    public void newMap_WithLandAndSize10_Contains10LandFields()
+    void newMap_WithLandAndSize10_Contains10LandFields()
     {
         // Arrange
         int size = 10;

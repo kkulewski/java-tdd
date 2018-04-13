@@ -6,20 +6,28 @@ import Projekt1.Entities.*;
 import Projekt1.Logic.Interfaces.IPersistenceService;
 import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilePersistenceServiceTest
+class FilePersistenceServiceTest
 {
+    IPersistenceService ps;
+
+    @BeforeEach
+    void setup()
+    {
+        ps = new FilePersistenceService();
+    }
+
     @Test
-    public void saveMap_SavesMapToFile()
+    void saveMap_SavesMapToFile()
     {
         // Arrange
         Map map = new Map(8, true);
-        IPersistenceService ps = new FilePersistenceService();
 
         // Act
         ps.saveMap(map);
@@ -31,11 +39,10 @@ public class FilePersistenceServiceTest
     }
 
     @Test
-    public void saveShip_SavesShipToFile()
+    void saveShip_SavesShipToFile()
     {
         // Arrange
         Ship ship = new Ship(Direction.West, new Coordinate(2, 3));
-        IPersistenceService ps = new FilePersistenceService();
 
         // Act
         ps.saveShip(ship);
@@ -47,12 +54,11 @@ public class FilePersistenceServiceTest
     }
 
     @Test
-    public void loadMap_LoadsPreviouslySavedMapFromFile()
+    void loadMap_LoadsPreviouslySavedMapFromFile()
     {
         // Arrange
         int size = 8;
         Map map = new Map(size, true);
-        IPersistenceService ps = new FilePersistenceService();
         ps.saveMap(map);
 
         // Act
@@ -76,11 +82,10 @@ public class FilePersistenceServiceTest
     }
 
     @Test
-    public void loadShip_LoadsPreviouslySavedShipFromFile()
+    void loadShip_LoadsPreviouslySavedShipFromFile()
     {
         // Arrange
         Ship ship = new Ship(Direction.West, new Coordinate(2, 3));
-        IPersistenceService ps = new FilePersistenceService();
         ps.saveShip(ship);
 
         // Act

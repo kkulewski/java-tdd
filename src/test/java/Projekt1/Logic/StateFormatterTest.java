@@ -6,10 +6,10 @@ import Projekt1.Entities.*;
 import Projekt1.Logic.Interfaces.IStateFormatter;
 import org.junit.jupiter.api.Test;
 
-public class StateFormatterTest
+class StateFormatterTest
 {
     @Test
-    public void getFormattedState()
+    void getCurrentState_ReturnsExpectedString()
     {
         // Arrange
         Field[] row1 = { Field.Water, Field.Water, Field.Water };

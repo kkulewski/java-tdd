@@ -5,8 +5,8 @@ import Projekt1.Entities.Ship;
 
 public interface IPersistenceService
 {
-    public IActionResult saveMap(Map map);
-    public IActionResult saveShip(Ship ship);
-    public Map loadMap();
-    public Ship loadShip();
+    IActionResult saveMap(Map map);
+    IActionResult saveShip(Ship ship);
+    Map loadMap();
+    Ship loadShip();
 }

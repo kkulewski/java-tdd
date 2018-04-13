@@ -2,10 +2,10 @@ package Projekt1.Logic.Interfaces;
 
 public interface IActionResult
 {
-    public boolean getStatus();
-    public String getMessage();
+    boolean getStatus();
+    String getMessage();
 
-    public static IActionResult getErrorResult()
+    static IActionResult getErrorResult()
     {
         return new IActionResult()
         {
