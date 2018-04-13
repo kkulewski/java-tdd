@@ -3,15 +3,22 @@ package Projekt1.Logic;
 import Projekt1.Entities.*;
 import Projekt1.Logic.Interfaces.IMoveProcessor;
 import Projekt1.Logic.Interfaces.IActionResult;
-import lombok.Getter;
 
 public class MoveProcessor implements IMoveProcessor
 {
-    @Getter
     private Map map;
 
-    @Getter
+    public Map getMap()
+    {
+        return map;
+    }
+
     private Ship ship;
+
+    public Ship getShip()
+    {
+        return ship;
+    }
 
     public MoveProcessor(Map map, Ship ship)
     {

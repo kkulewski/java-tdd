@@ -1,17 +1,29 @@
 package Projekt1.Entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class Ship
 {
-    @Getter
-    @Setter
     private Direction direction;
 
-    @Getter
-    @Setter
+    public Direction getDirection()
+    {
+        return this.direction;
+    }
+
+    public void setDirection(Direction direction)
+    {
+        this.direction = direction;
+    }
     private Coordinate coordinate;
+
+    public Coordinate getCoordinate()
+    {
+        return this.coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate)
+    {
+        this.coordinate = coordinate;
+    }
 
     public Ship()
     {

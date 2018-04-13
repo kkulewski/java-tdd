@@ -1,7 +1,5 @@
 package Projekt1.Entities;
 
-import lombok.Getter;
-
 public enum Direction
 {
     North(0, 'N'),
@@ -10,9 +8,12 @@ public enum Direction
     West(3, 'W');
 
     private int index;
-
-    @Getter
     private char symbol;
+
+    public char getSymbol()
+    {
+        return this.symbol;
+    }
 
     Direction(int index, char symbol)
     {

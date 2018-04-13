@@ -1,14 +1,16 @@
 package Projekt1.Entities;
 
-import lombok.Getter;
-
 public enum Field
 {
     Water(' '),
     Land('O');
 
-    @Getter
     private char symbol;
+
+    public char getSymbol()
+    {
+        return this.symbol;
+    }
 
     Field(char symbol)
     {

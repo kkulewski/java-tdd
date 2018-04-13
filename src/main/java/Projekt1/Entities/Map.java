@@ -7,9 +7,12 @@ import java.util.Random;
 public class Map
 {
     private Field[][] fields;
-
-    @Getter
     private int size;
+
+    public int getSize()
+    {
+        return this.size;
+    }
 
     public Map(int size)
     {
