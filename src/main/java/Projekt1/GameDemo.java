@@ -9,8 +9,11 @@ import Projekt1.Logic.Interfaces.*;
 import Projekt1.Logic.MoveProcessor;
 import Projekt1.Logic.StateFormatter;
 
+import java.util.Scanner;
+
 public class GameDemo
 {
+    private Scanner scanner;
     private Map map;
     private Ship ship;
 
@@ -21,6 +24,7 @@ public class GameDemo
 
     public GameDemo()
     {
+        this.scanner = new Scanner(System.in);
         this.persistenceService = new FilePersistenceService();
     }
 
@@ -46,7 +50,7 @@ public class GameDemo
             System.out.println(this.stateFormatter.getCurrentState());
             System.out.println("Input commands to be executed.");
             System.out.println("n:forward | w:back | l:left | r:right | s:shoot | q:save+exit | e:exit");
-            String input = System.console().readLine().toLowerCase();
+            String input = scanner.nextLine().toLowerCase();
 
             if (input.startsWith("e"))
             {
@@ -97,7 +101,7 @@ public class GameDemo
 
     private int processGameInitializationOption()
     {
-        return Integer.parseInt(System.console().readLine());
+        return scanner.nextInt();
     }
 
     private void createNewGamePrompt()
@@ -107,12 +111,8 @@ public class GameDemo
 
     private int processGameSizeOption()
     {
-        int input = 0;
-        try
-        {
-            input = Integer.parseInt(System.console().readLine());
-        }
-        catch(Exception e)
+        int input = scanner.nextInt();
+        if (input <= 0)
         {
             invalidOptionPrompt();
             System.exit(0);
@@ -162,7 +162,7 @@ public class GameDemo
             System.out.println("> " + result.getMessage());
             System.out.println();
             System.out.println();
-            System.console().readLine();
+            scanner.nextLine();
         }
     }
 }
