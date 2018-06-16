@@ -1,22 +1,22 @@
 package Projekt1.Logic;
 
 import Projekt1.Logic.Interfaces.CommandProcessor;
-import Projekt1.Logic.Interfaces.IMoveProcessor;
-import Projekt1.Logic.Interfaces.IActionResult;
+import Projekt1.Logic.Interfaces.MoveProcessor;
+import Projekt1.Logic.Interfaces.ActionResult;
 
 public class TextCommandProcessor implements CommandProcessor
 {
-    private IMoveProcessor moveProcessor;
+    private MoveProcessor moveProcessor;
 
-    public TextCommandProcessor(IMoveProcessor moveProcessor)
+    public TextCommandProcessor(MoveProcessor moveProcessor)
     {
         this.moveProcessor = moveProcessor;
     }
 
     @Override
-    public IActionResult execute(char symbol)
+    public ActionResult execute(char symbol)
     {
-        IActionResult result;
+        ActionResult result;
 
         char command = Character.toLowerCase(symbol);
         switch (command)
@@ -42,7 +42,7 @@ public class TextCommandProcessor implements CommandProcessor
                 break;
 
             default:
-                result = IActionResult.getErrorResult();
+                result = ActionResult.getErrorResult();
                 break;
         }
 

@@ -4,9 +4,9 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import Projekt1.Logic.Stubs.MoveProcessorStub;
-import Projekt1.Logic.Interfaces.IActionResult;
+import Projekt1.Logic.Interfaces.ActionResult;
 import Projekt1.Logic.Interfaces.CommandProcessor;
-import Projekt1.Logic.Interfaces.IMoveProcessor;
+import Projekt1.Logic.Interfaces.MoveProcessor;
 import org.hamcrest.core.Every;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +25,7 @@ class TextCommandProcessorTest
     @BeforeEach
     void setup()
     {
-        IMoveProcessor mp = new MoveProcessorStub();
+        MoveProcessor mp = new MoveProcessorStub();
         cp = new TextCommandProcessor(mp);
     }
 
@@ -33,13 +33,13 @@ class TextCommandProcessorTest
     void executeWithValidCommandsReturnsTrueResult()
     {
         // Arrange
-        List<IActionResult> results = new ArrayList<>();
+        List<ActionResult> results = new ArrayList<>();
         Character[] commands = { 'l', 'r', 'n', 'w', 's' };
 
         // Act
         for (Character c : commands)
         {
-            IActionResult result = cp.execute(c);
+            ActionResult result = cp.execute(c);
             results.add(result);
         }
 
@@ -51,13 +51,13 @@ class TextCommandProcessorTest
     void executeWithInvalidCommandsReturnsFalseResult()
     {
         // Arrange
-        List<IActionResult> results = new ArrayList<>();
+        List<ActionResult> results = new ArrayList<>();
         Character[] commands = { 'p', '@', 'x', 'q', '7' };
 
         // Act
         for (Character c : commands)
         {
-            IActionResult result = cp.execute(c);
+            ActionResult result = cp.execute(c);
             results.add(result);
         }
 
@@ -70,7 +70,7 @@ class TextCommandProcessorTest
     void executeWithValidCommandFromParamsReturnsTrueResult(char command)
     {
         // Act
-        IActionResult result = cp.execute(command);
+        ActionResult result = cp.execute(command);
 
         // Assert
         Assert.assertTrue(result.getStatus());
@@ -81,7 +81,7 @@ class TextCommandProcessorTest
     void executeWithCommandsFromCsvReturnsExpectedResults(char command, boolean result)
     {
         // Act
-        IActionResult actionResult = cp.execute(command);
+        ActionResult actionResult = cp.execute(command);
 
         // Assert
         assertEquals(actionResult.getStatus(), result);

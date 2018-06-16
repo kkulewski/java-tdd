@@ -1,38 +1,38 @@
 package Projekt1.Logic.Stubs;
 
-import Projekt1.Logic.ActionResult;
-import Projekt1.Logic.Interfaces.IActionResult;
-import Projekt1.Logic.Interfaces.IMoveProcessor;
+import Projekt1.Logic.TextActionResult;
+import Projekt1.Logic.Interfaces.ActionResult;
+import Projekt1.Logic.Interfaces.MoveProcessor;
 
-public class MoveProcessorStub implements IMoveProcessor
+public class MoveProcessorStub implements MoveProcessor
 {
     @Override
-    public IActionResult turnRight()
+    public ActionResult turnRight()
     {
-        return new ActionResult(true);
+        return new TextActionResult(true);
     }
 
     @Override
-    public IActionResult turnLeft()
+    public ActionResult turnLeft()
     {
-        return new ActionResult(true);
+        return new TextActionResult(true);
     }
 
     @Override
-    public IActionResult moveForward()
+    public ActionResult moveForward()
     {
-        return new ActionResult(true);
+        return new TextActionResult(true);
     }
 
     @Override
-    public IActionResult moveBack()
+    public ActionResult moveBack()
     {
-        return new ActionResult(true);
+        return new TextActionResult(true);
     }
 
     @Override
-    public IActionResult shoot()
+    public ActionResult shoot()
     {
-        return new ActionResult(true);
+        return new TextActionResult(true);
     }
 }

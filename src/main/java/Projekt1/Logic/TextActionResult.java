@@ -1,19 +1,19 @@
 package Projekt1.Logic;
 
-import Projekt1.Logic.Interfaces.IActionResult;
+import Projekt1.Logic.Interfaces.ActionResult;
 
-public class ActionResult implements IActionResult
+public class TextActionResult implements ActionResult
 {
     private boolean status;
     private String message;
 
-    public ActionResult(boolean status)
+    public TextActionResult(boolean status)
     {
         this.status = status;
         this.message = "";
     }
 
-    public ActionResult(boolean status, String message)
+    public TextActionResult(boolean status, String message)
     {
         this(status);
         this.message = message;

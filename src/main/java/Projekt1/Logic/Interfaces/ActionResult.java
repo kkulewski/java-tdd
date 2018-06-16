@@ -1,13 +1,13 @@
 package Projekt1.Logic.Interfaces;
 
-public interface IActionResult
+public interface ActionResult
 {
     boolean getStatus();
     String getMessage();
 
-    static IActionResult getErrorResult()
+    static ActionResult getErrorResult()
     {
-        return new IActionResult()
+        return new ActionResult()
         {
             @Override
             public boolean getStatus()

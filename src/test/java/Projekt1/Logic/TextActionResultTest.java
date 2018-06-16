@@ -2,10 +2,10 @@ package Projekt1.Logic;
 
 import static org.assertj.core.api.Assertions.*;
 
-import Projekt1.Logic.Interfaces.IActionResult;
+import Projekt1.Logic.Interfaces.ActionResult;
 import org.junit.jupiter.api.Test;
 
-class ActionResultTest
+class TextActionResultTest
 {
     @Test
     void newActionResultWithMessageHasCorrectMessage()
@@ -14,7 +14,7 @@ class ActionResultTest
         String message = "Example message";
 
         // Act
-        IActionResult result = new ActionResult(true, message);
+        ActionResult result = new TextActionResult(true, message);
 
         // Assert
         assertThat(result.getMessage()).contains(message);
@@ -24,7 +24,7 @@ class ActionResultTest
     void defaultErrorActionResultContainsErrorMessage()
     {
         // Act
-        IActionResult result = IActionResult.getErrorResult();
+        ActionResult result = ActionResult.getErrorResult();
 
         // Assert
         assertThat(result.getMessage()).contains("Error");

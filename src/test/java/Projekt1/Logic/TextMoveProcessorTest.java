@@ -3,11 +3,11 @@ package Projekt1.Logic;
 import static org.assertj.core.api.Assertions.*;
 
 import Projekt1.Entities.*;
-import Projekt1.Logic.Interfaces.IMoveProcessor;
-import Projekt1.Logic.Interfaces.IActionResult;
+import Projekt1.Logic.Interfaces.MoveProcessor;
+import Projekt1.Logic.Interfaces.ActionResult;
 import org.junit.jupiter.api.Test;
 
-class MoveProcessorTest
+class TextMoveProcessorTest
 {
     @Test
     void turnRightWithShipFacingNorthMakesItFaceEast()
@@ -15,7 +15,7 @@ class MoveProcessorTest
         // Arrange
         Map map = new Map(0);
         Ship ship = new Ship(Direction.North);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.turnRight();
@@ -30,7 +30,7 @@ class MoveProcessorTest
         // Arrange
         Map map = new Map(0);
         Ship ship = new Ship(Direction.North);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.turnLeft();
@@ -45,10 +45,10 @@ class MoveProcessorTest
         // Arrange
         Map map = new Map(2);
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
-        IActionResult result = mp.moveForward();
+        ActionResult result = mp.moveForward();
 
         // Assert
         assertThat(result.getStatus()).isTrue();
@@ -61,7 +61,7 @@ class MoveProcessorTest
         Map map = new Map(2);
         Coordinate initial = new Coordinate(0, 0);
         Ship ship = new Ship(Direction.East, initial);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.moveForward();
@@ -78,7 +78,7 @@ class MoveProcessorTest
         Map map = new Map(3);
         Coordinate initial = new Coordinate(0, 0);
         Ship ship = new Ship(Direction.West, initial);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.moveForward();
@@ -95,7 +95,7 @@ class MoveProcessorTest
         Map map = new Map(3);
         Coordinate initial = new Coordinate(2, 0);
         Ship ship = new Ship(Direction.South, initial);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.moveForward();
@@ -113,10 +113,10 @@ class MoveProcessorTest
         Coordinate landCoordinate = new Coordinate(0, 1);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
-        IActionResult result = mp.moveForward();
+        ActionResult result = mp.moveForward();
 
         // Assert
         assertThat(result.getStatus()).isFalse();
@@ -130,7 +130,7 @@ class MoveProcessorTest
         Coordinate landCoordinate = new Coordinate(0, 1);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.moveForward();
@@ -148,7 +148,7 @@ class MoveProcessorTest
         Coordinate landCoordinate = new Coordinate(0, 3);
         map.setField(landCoordinate, Field.Land);
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.moveForward(); // 0 -> 1
@@ -167,7 +167,7 @@ class MoveProcessorTest
         // Arrange
         Map map = new Map(5);
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.moveBack();
@@ -183,10 +183,10 @@ class MoveProcessorTest
         // Arrange
         Map map = new Map(3);
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
-        IActionResult result = mp.shoot();
+        ActionResult result = mp.shoot();
 
         // Assert
         assertThat(result.getStatus()).isTrue();
@@ -198,7 +198,7 @@ class MoveProcessorTest
         // Arrange
         Map map = new Map(3);
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.shoot();
@@ -217,10 +217,10 @@ class MoveProcessorTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
-        IActionResult result = mp.shoot();
+        ActionResult result = mp.shoot();
 
         // Assert
         assertThat(result.getStatus()).isTrue();
@@ -235,7 +235,7 @@ class MoveProcessorTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.shoot();
@@ -254,7 +254,7 @@ class MoveProcessorTest
         map.setField(landCoordinate, Field.Land);
 
         Ship ship = new Ship(Direction.East);
-        IMoveProcessor mp = new MoveProcessor(map, ship);
+        MoveProcessor mp = new TextMoveProcessor(map, ship);
 
         // Act
         mp.moveForward(); // 0 -> 1

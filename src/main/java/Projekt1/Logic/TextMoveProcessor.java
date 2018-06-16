@@ -1,10 +1,10 @@
 package Projekt1.Logic;
 
 import Projekt1.Entities.*;
-import Projekt1.Logic.Interfaces.IMoveProcessor;
-import Projekt1.Logic.Interfaces.IActionResult;
+import Projekt1.Logic.Interfaces.MoveProcessor;
+import Projekt1.Logic.Interfaces.ActionResult;
 
-public class MoveProcessor implements IMoveProcessor
+public class TextMoveProcessor implements MoveProcessor
 {
     private Map map;
 
@@ -20,42 +20,42 @@ public class MoveProcessor implements IMoveProcessor
         return ship;
     }
 
-    public MoveProcessor(Map map, Ship ship)
+    public TextMoveProcessor(Map map, Ship ship)
     {
         this.map = map;
         this.ship = ship;
     }
 
     @Override
-    public IActionResult turnRight()
+    public ActionResult turnRight()
     {
         Direction newDirection = Direction.right(ship.getDirection());
         this.ship.setDirection(newDirection);
-        return new ActionResult(true, "Turned right.");
+        return new TextActionResult(true, "Turned right.");
     }
 
     @Override
-    public IActionResult turnLeft()
+    public ActionResult turnLeft()
     {
         Direction newDirection = Direction.left(ship.getDirection());
         this.ship.setDirection(newDirection);
-        return new ActionResult(true, "Turned left.");
+        return new TextActionResult(true, "Turned left.");
     }
 
     @Override
-    public IActionResult moveForward()
+    public ActionResult moveForward()
     {
         return moveToCoordinate(getCoordinateAhead());
     }
 
     @Override
-    public IActionResult moveBack()
+    public ActionResult moveBack()
     {
         return moveToCoordinate(getCoordinateBehind());
     }
 
     @Override
-    public IActionResult shoot()
+    public ActionResult shoot()
     {
         Coordinate targetCoordinate = getCoordinateAhead();
         Field targetField = this.map.getField(targetCoordinate);
@@ -63,28 +63,28 @@ public class MoveProcessor implements IMoveProcessor
         if (targetField == Field.Land)
         {
             this.map.setField(targetCoordinate, Field.Water);
-            return new ActionResult(true, "Land destroyed.");
+            return new TextActionResult(true, "Land destroyed.");
         }
 
         if (targetField == Field.Water)
         {
-            return new ActionResult(true, "Shot into the water.");
+            return new TextActionResult(true, "Shot into the water.");
         }
 
-        return new ActionResult(false, "Cannot shoot there.");
+        return new TextActionResult(false, "Cannot shoot there.");
     }
 
-    private IActionResult moveToCoordinate(Coordinate coordinate)
+    private ActionResult moveToCoordinate(Coordinate coordinate)
     {
         Field targetField = this.map.getField(coordinate);
 
         if (targetField == Field.Water)
         {
             this.ship.setCoordinate(coordinate);
-            return new ActionResult(true, "Moved.");
+            return new TextActionResult(true, "Moved.");
         }
 
-        return new ActionResult(false, "Cannot move there.");
+        return new TextActionResult(false, "Cannot move there.");
     }
 
     private Coordinate getCoordinateAhead()

@@ -1,7 +1,7 @@
 package Projekt1.Logic;
 
 import Projekt1.Entities.*;
-import Projekt1.Logic.Interfaces.IActionResult;
+import Projekt1.Logic.Interfaces.ActionResult;
 import Projekt1.Logic.Interfaces.PersistenceService;
 
 import java.io.File;
@@ -16,7 +16,7 @@ public class FilePersistenceService implements PersistenceService
     final static String SHIP_FILENAME = "ship.txt";
 
     @Override
-    public IActionResult saveMap(Map map)
+    public ActionResult saveMap(Map map)
     {
         int mapSize = map.getSize();
 
@@ -39,14 +39,14 @@ public class FilePersistenceService implements PersistenceService
         }
         catch(Exception e)
         {
-            return new ActionResult(false,"Error when saving map to file!");
+            return new TextActionResult(false,"Error when saving map to file!");
         }
 
-        return new ActionResult(true, "Map saved!");
+        return new TextActionResult(true, "Map saved!");
     }
 
     @Override
-    public IActionResult saveShip(Ship ship)
+    public ActionResult saveShip(Ship ship)
     {
         StringBuilder sb = new StringBuilder();
         sb.append(ship.getDirection().getSymbol());
@@ -61,10 +61,10 @@ public class FilePersistenceService implements PersistenceService
         }
         catch(Exception e)
         {
-            return new ActionResult(false,"Error when saving ship to file!");
+            return new TextActionResult(false,"Error when saving ship to file!");
         }
 
-        return new ActionResult(true, "Ship saved!");
+        return new TextActionResult(true, "Ship saved!");
     }
 
     @Override

@@ -6,7 +6,7 @@ import Projekt1.Entities.Ship;
 import Projekt1.Logic.TextCommandProcessor;
 import Projekt1.Logic.FilePersistenceService;
 import Projekt1.Logic.Interfaces.*;
-import Projekt1.Logic.MoveProcessor;
+import Projekt1.Logic.TextMoveProcessor;
 import Projekt1.Logic.TextStateFormatter;
 
 import java.util.Scanner;
@@ -18,7 +18,7 @@ public class GameDemo
     private Ship ship;
 
     private CommandProcessor commandProcessor;
-    private IMoveProcessor moveProcessor;
+    private MoveProcessor moveProcessor;
     private PersistenceService persistenceService;
     private StateFormatter stateFormatter;
 
@@ -131,7 +131,7 @@ public class GameDemo
         this.map = new Map(mapSize, true);
         this.ship = new Ship(Direction.East);
 
-        this.moveProcessor = new MoveProcessor(this.map, this.ship);
+        this.moveProcessor = new TextMoveProcessor(this.map, this.ship);
         this.stateFormatter = new TextStateFormatter(this.map, this.ship);
         this.commandProcessor = new TextCommandProcessor(this.moveProcessor);
     }
@@ -141,7 +141,7 @@ public class GameDemo
         this.map = this.persistenceService.loadMap();
         this.ship = this.persistenceService.loadShip();
 
-        this.moveProcessor = new MoveProcessor(this.map, this.ship);
+        this.moveProcessor = new TextMoveProcessor(this.map, this.ship);
         this.stateFormatter = new TextStateFormatter(this.map, this.ship);
         this.commandProcessor = new TextCommandProcessor(this.moveProcessor);
     }
@@ -157,7 +157,7 @@ public class GameDemo
     {
         for (char c : commands)
         {
-            IActionResult result = this.commandProcessor.execute(c);
+            ActionResult result = this.commandProcessor.execute(c);
             System.out.println(this.stateFormatter.getCurrentState());
             System.out.println("> " + result.getMessage());
             System.out.println();
