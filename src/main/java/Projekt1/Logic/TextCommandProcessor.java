@@ -1,14 +1,14 @@
 package Projekt1.Logic;
 
-import Projekt1.Logic.Interfaces.ICommandProcessor;
+import Projekt1.Logic.Interfaces.CommandProcessor;
 import Projekt1.Logic.Interfaces.IMoveProcessor;
 import Projekt1.Logic.Interfaces.IActionResult;
 
-public class CommandProcessor implements ICommandProcessor
+public class TextCommandProcessor implements CommandProcessor
 {
     private IMoveProcessor moveProcessor;
 
-    public CommandProcessor(IMoveProcessor moveProcessor)
+    public TextCommandProcessor(IMoveProcessor moveProcessor)
     {
         this.moveProcessor = moveProcessor;
     }

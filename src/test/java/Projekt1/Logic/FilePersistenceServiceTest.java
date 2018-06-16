@@ -3,7 +3,7 @@ package Projekt1.Logic;
 import static org.assertj.core.api.Assertions.*;
 
 import Projekt1.Entities.*;
-import Projekt1.Logic.Interfaces.IPersistenceService;
+import Projekt1.Logic.Interfaces.PersistenceService;
 import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +15,7 @@ import java.util.List;
 
 class FilePersistenceServiceTest
 {
-    private IPersistenceService ps;
+    private PersistenceService ps;
 
     @BeforeEach
     void setup()

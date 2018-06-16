@@ -2,7 +2,7 @@ package Projekt1.Logic;
 
 import Projekt1.Entities.*;
 import Projekt1.Logic.Interfaces.IActionResult;
-import Projekt1.Logic.Interfaces.IPersistenceService;
+import Projekt1.Logic.Interfaces.PersistenceService;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class FilePersistenceService implements IPersistenceService
+public class FilePersistenceService implements PersistenceService
 {
     final static String MAP_FILENAME = "map.txt";
     final static String SHIP_FILENAME = "ship.txt";

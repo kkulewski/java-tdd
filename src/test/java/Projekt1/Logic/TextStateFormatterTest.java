@@ -3,10 +3,10 @@ package Projekt1.Logic;
 import static org.assertj.core.api.Assertions.*;
 
 import Projekt1.Entities.*;
-import Projekt1.Logic.Interfaces.IStateFormatter;
+import Projekt1.Logic.Interfaces.StateFormatter;
 import org.junit.jupiter.api.Test;
 
-class StateFormatterTest
+class TextStateFormatterTest
 {
     @Test
     void getCurrentStateReturnsExpectedString()
@@ -18,7 +18,7 @@ class StateFormatterTest
         Field[][] fields = { row1, row2, row3 };
         Map map = new Map(fields);
         Ship ship = new Ship(Direction.North, new Coordinate(0, 0));
-        IStateFormatter sf = new StateFormatter(map, ship);
+        StateFormatter sf = new TextStateFormatter(map, ship);
 
         // Act
         String result = sf.getCurrentState();

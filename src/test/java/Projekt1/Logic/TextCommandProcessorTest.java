@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import Projekt1.Logic.Stubs.MoveProcessorStub;
 import Projekt1.Logic.Interfaces.IActionResult;
-import Projekt1.Logic.Interfaces.ICommandProcessor;
+import Projekt1.Logic.Interfaces.CommandProcessor;
 import Projekt1.Logic.Interfaces.IMoveProcessor;
 import org.hamcrest.core.Every;
 import org.junit.Assert;
@@ -18,15 +18,15 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.ArrayList;
 import java.util.List;
 
-class CommandProcessorTest
+class TextCommandProcessorTest
 {
-    private ICommandProcessor cp;
+    private CommandProcessor cp;
 
     @BeforeEach
     void setup()
     {
         IMoveProcessor mp = new MoveProcessorStub();
-        cp = new CommandProcessor(mp);
+        cp = new TextCommandProcessor(mp);
     }
 
     @Test

@@ -1,14 +1,14 @@
 package Projekt1.Logic;
 
 import Projekt1.Entities.*;
-import Projekt1.Logic.Interfaces.IStateFormatter;
+import Projekt1.Logic.Interfaces.StateFormatter;
 
-public class StateFormatter implements IStateFormatter
+public class TextStateFormatter implements StateFormatter
 {
     private Map map;
     private Ship ship;
 
-    public StateFormatter(Map map, Ship ship)
+    public TextStateFormatter(Map map, Ship ship)
     {
         this.map = map;
         this.ship = ship;
