@@ -1,6 +1,9 @@
 # Testowanie aplikacji JAVA 2017-2018
 ## Projekt 1 (JUnit, narzędzie Hamcrest oraz MAVEN) 
 
+| Travis CI Status |
+|:--:|
+[![Build Status](https://travis-ci.com/kkulewski/java-tdd.svg?token=raYvD9MwETMyAUKsjNr7&branch=delombok)](https://travis-ci.com/kkulewski/java-tdd)
 -----------------------
 ### REGUŁY GRY
 
